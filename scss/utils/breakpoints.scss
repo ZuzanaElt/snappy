@@ -1,0 +1,12 @@
+// 1 rem = 16px
+// to use @mixin type "@include breakpoint(size) { styling }" within element/class/id selector.
+$breakpoints: (
+  'mobile': '40em',
+  'desktop': '64em',
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content
+  }
+}
