@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import '../scss/pages/level-select.scss';
 
 const LevelSelect = ({ level, setLevel }) => {
