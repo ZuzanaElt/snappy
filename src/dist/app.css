@@ -12,4 +12,23 @@ html {
 body {
   margin: 0;
   padding: 0;
+}/*# sourceMappingURL=app.css.map */a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  border: 1px solid black;
+}
+
+.header {
+  background-color: aqua;
+}
+
+.footer {
+  background-color: limegreen;
 }/*# sourceMappingURL=app.css.map */

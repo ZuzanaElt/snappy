@@ -9,7 +9,7 @@ import { supabase } from "../src/lib/supabaseClient";
 import AccountDisplay from "./pages/Account";
 import Nav from "./components/Nav/Nav";
 import './scss/app.scss';
-import LevelSelect from './pages';
+import LevelSelect from './pages/LevelSelect';
 
 function App() {
   const [session, setSession] = useState(null);
