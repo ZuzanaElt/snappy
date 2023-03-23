@@ -11,6 +11,7 @@ import Nav from "./components/Nav/Nav";
 import "./scss/app.scss";
 import LevelSelect from "./pages/LevelSelect";
 
+
 function App() {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();
@@ -51,6 +52,9 @@ function App() {
           />
           <Route path="/login" element={<Navigate to="/login" />} />
           <Route path="/level-select" element={<LevelSelect />} />
+          {/* <Route path="/level-select/easy" element={<EasyLevel />} />
+          <Route path="/level-select/medium" element={<MediumLevel />} />
+          <Route path="/level-select/hard"  element={<HardLevel />} /> */}
         </Routes>
       </div>
     </Router>

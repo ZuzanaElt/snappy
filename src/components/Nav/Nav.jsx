@@ -31,7 +31,8 @@ export default function Nav({ profile, session }) {
             </div>
           </div>
         </div>
-        <div>{profile ? <h2>Hi, {profile.username}</h2> : <p>Hello</p>}</div>
-      </>
+        <div>{profile ? <h2>Hi, {profile.username}</h2> : <p>Hello User (from Nav.js)</p>}</div>
+      
+    </>
   );
 };
