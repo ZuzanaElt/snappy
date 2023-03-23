@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 
 //import { FcHome } from '@react-icons/all-files/fa/FcHome';
+
 import housePic from './house.webp';
 import dinoLogo from './transparent.png';
 import '../../scss/components/nav.scss'
@@ -32,9 +33,7 @@ export default function Nav({ profile, session }) {
             </div>
           </div>
         <div>{profile ? <h2>Hi, {profile.username}</h2> : <p>Hello</p>}</div>
-      </div>
-      
-      </>
-    );
+    </>
+  );
   // }
 }

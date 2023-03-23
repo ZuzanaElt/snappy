@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../../lib/supabaseClient";
+import "../../scss/pages/account.scss";
 
 function Account({ session }) {
   const [loading, setLoading] = useState(true);
@@ -54,13 +55,13 @@ function Account({ session }) {
   }
 
   return (
-    <form onSubmit={updateProfile} className="form-widget">
-      <div>
+    <form onSubmit={updateProfile} className="form">
+      <div className="input-cont">
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
-      <div>
-        <label htmlFor="parentDOB">parentDOB</label>
+      <div className="input-cont">
+        <label htmlFor="parentDOB">Parent date of birth</label>
         <input
           id="parentDOB"
           type="date"
@@ -68,7 +69,7 @@ function Account({ session }) {
           onChange={(e) => setParentDOB(e.target.value)}
         />
       </div>
-      <div>
+      <div className="input-cont">
         <label htmlFor="username">Childs username</label>
         <input
           id="username"
@@ -79,18 +80,14 @@ function Account({ session }) {
         />
       </div>
       <div>
-        <button
-          className="button block primary"
-          type="submit"
-          disabled={loading}
-        >
+        <button className="btn" type="submit" disabled={loading}>
           {loading ? "Loading ..." : "Update"}
         </button>
       </div>
 
       <div>
         <button
-          className="button block"
+          className="btn"
           type="button"
           onClick={() => supabase.auth.signOut()}
         >
