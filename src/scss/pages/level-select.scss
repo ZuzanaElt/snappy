@@ -1,0 +1,33 @@
+.container {
+  background-image: url('../../pages/background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > h1 {
+  margin: 2rem;
+  font-size: 2.5rem;
+}
+
+.level-links > button {
+  padding: 1rem 2rem;
+  margin: 1rem;
+  color: black;
+  border: 1px solid black;
+  border-radius: 1rem;
+  font-size: 2rem;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+}

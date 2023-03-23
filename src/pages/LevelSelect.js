@@ -1,13 +1,17 @@
-import React from 'react';
-// import Card from '../../components/Card';
-import '../dist/level-select.css';
+import React, { useState } from 'react';
+import '../scss/pages/level-select.scss';
 
-const LevelSelect = () => {
+const LevelSelect = ({ level, setLevel }) => {
+
     return (
-        <>
-        <h1>LevelSelect Page</h1>
-            {/* <Card /> */}
-        </>
+        <div className='container'>
+            <h1 className='level-select'>Select a level!</h1>
+            <div className='level-links'>
+                <button onClick={setLevel}>Easy</button>
+                <button onClick={setLevel}>Medium</button>
+                <button onClick={setLevel}>Hard</button>
+            </div>
+        </div>
     );
 };
 
