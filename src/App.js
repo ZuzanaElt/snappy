@@ -43,14 +43,11 @@ function App() {
         <Nav profile={profile} session={session} />
         <Routes>
           <Route path="/" />
-          {session ? (
             <Route
               path="/account"
               element={<AccountDisplay session={session} />}
             />
-          ) : (
             <Route path="/login" element={<Navigate to="/login" />} />
-          )}
         </Routes>
       </div>
     </Router>
