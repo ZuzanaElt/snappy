@@ -1,6 +1,6 @@
 import React from 'react';
 // import Card from '../../components/Card';
-import '../dist/level-select.css';
+import '../scss/pages/level-select.scss';
 
 const LevelSelect = () => {
     return (
