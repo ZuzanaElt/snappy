@@ -40,7 +40,9 @@ function App() {
   return (
     <Router>
       <div>
+        
         <Nav profile={profile} session={session} />
+        <p>Test</p>
         <Routes>
           <Route path="/" />
             <Route
