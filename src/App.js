@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import { supabase } from "../src/lib/supabaseClient";
 import AccountDisplay from "./pages/Account";
 import Nav from "./components/Nav/Nav";
+import './scss/app.scss';
+import LevelSelect from './pages';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -48,6 +50,7 @@ function App() {
               element={<AccountDisplay session={session} />}
             />
             <Route path="/login" element={<Navigate to="/login" />} />
+            <Route path='/level-select' element={<LevelSelect />}/>
         </Routes>
       </div>
     </Router>
