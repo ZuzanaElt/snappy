@@ -23,7 +23,6 @@ const CardMatchGame = () => {
       <div className="container">
         <h1>Card Match Game</h1>
         <LevelSelect level={level} setLevel={setLevel} />
-        <button onClick={() => setLevel(1)}>Level</button>
       </div>
     );
   }
