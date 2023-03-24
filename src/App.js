@@ -18,9 +18,6 @@ function App() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       console.log(session);
-      if (session === null) {
-        return <Navigate replace to="/account" element={<AccountDisplay />} />;
-      }
       if (session) {
         async function getProfile() {
           let { data, error } = await supabase
@@ -42,17 +39,19 @@ function App() {
     });
   }, []);
 
+  if (session === null) {
+    return <AccountDisplay session={session} />;
+  }
   return (
     <Router>
       <div className="home">
         <Nav profile={profile} session={session} />
         <Routes>
-          <Route path="/" />
+          <Route path="/" element={<CardMatchGame />} />
           <Route
             path="/account"
             element={<AccountDisplay session={session} />}
           />
-          <Route path="/game" element={<CardMatchGame />} />
           {/* <Route path="/level-select/easy" element={<EasyLevel />} />
           <Route path="/level-select/medium" element={<MediumLevel />} />
           <Route path="/level-select/hard"  element={<HardLevel />} /> */}
