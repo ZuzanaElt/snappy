@@ -11,6 +11,7 @@ import Nav from "./components/Nav/Nav";
 import "./scss/app.scss";
 import "../src/scss/pages/home.scss";
 import Game from "./pages/game";
+
 function App() {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();

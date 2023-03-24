@@ -6,6 +6,7 @@ import { supabase } from "../lib/supabaseClient"
 //import { NavLink } from 'react-router-dom';
 import "../scss/pages/game.scss"
 
+
 const CardMatchGame = () => {
 
   const [level, setLevel] = useState(0);
@@ -31,14 +32,13 @@ const CardMatchGame = () => {
 
   //testing array - we need to create images array
   const imageArray = [
-    "pic1",
-    "pic2",
+   
     "pic3",
     "pic4",
     "pic5",
     "pic6",
     "pic7",
-    "pic8",
+    "pic8"
   ];
 
   function randomisedImageArray(imageArray, num) {
@@ -63,13 +63,17 @@ const CardMatchGame = () => {
     const randomCard = randomisedImageArray(imageArray, 2);
     return (
       <>
-        <div className="container">
+        <div className="container ">
           <h1>Easy</h1>
-          {randomCard.map((card, index) => (
-            <div className="cardDiv1">
+          <div className="cardDiv1 ">
+            
+                {randomCard.map((card, index) => (
+            <div >
               <Card card={card} index={index} />
             </div>
           ))}
+          
+          </div>
         <button className="finish" onClick={() => {
             setLevel(4);
           }}>Finish</button>
@@ -82,12 +86,14 @@ const CardMatchGame = () => {
     return (
       <>
         <div className="container">
-          <h1>Easy</h1>
+          <h1>Medium</h1>
+          <div className="cardDiv2 ">
           {randomCard.map((card, index) => (
-            <div className="cardDiv2">
+            <div >
               <Card card={card} index={index} />
             </div>
           ))}
+          </div>
         <button className="finish" onClick={() => {
             setLevel(4);
           }}>Finish</button>
@@ -100,7 +106,7 @@ const CardMatchGame = () => {
     return (
       <>
         <div className="container">
-          <h1>Easy</h1>
+          <h1>Hard</h1>
           {randomCard.map((card, index) => (
             <div className="cardDiv3">
               <Card card={card} index={index} />
