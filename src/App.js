@@ -49,6 +49,9 @@ function App() {
             element={<AccountDisplay session={session} />}
           />
           <Route path="/level-select" element={<LevelSelect />} />
+          {/* <Route path="/level-select/easy" element={<EasyLevel />} />
+          <Route path="/level-select/medium" element={<MediumLevel />} />
+          <Route path="/level-select/hard"  element={<HardLevel />} /> */}
         </Routes>
       </div>
     </Router>
