@@ -3,7 +3,6 @@ import {
   Navigate,
   Route,
   Routes,
-  useNavigate,
 } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { supabase } from "../src/lib/supabaseClient";
@@ -12,11 +11,16 @@ import Nav from "./components/Nav/Nav";
 import "./scss/app.scss";
 import LevelSelect from "./pages/LevelSelect";
 import "../src/scss/pages/home.scss";
+import CardMatchGame from "./pages/game";
 function App() {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
+      console.log(session);
+      if (session === null) {
+        return <Navigate replace to="/account" element={<AccountDisplay />} />;
+      }
       if (session) {
         async function getProfile() {
           let { data, error } = await supabase
@@ -48,7 +52,7 @@ function App() {
             path="/account"
             element={<AccountDisplay session={session} />}
           />
-          <Route path="/level-select" element={<LevelSelect />} />
+          <Route path="/game" element={<CardMatchGame />} />
           {/* <Route path="/level-select/easy" element={<EasyLevel />} />
           <Route path="/level-select/medium" element={<MediumLevel />} />
           <Route path="/level-select/hard"  element={<HardLevel />} /> */}
