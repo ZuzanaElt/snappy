@@ -1,18 +1,15 @@
 .nav-items {
-    display: inline-flex;
-    justify-content: space-between;
-    height: 60px;
-    width:100%;
-    background-color:rgb(247, 237, 247);
+  display: inline-flex;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  background-color: transparent;
 }
-    
-  
-   .nav-home{
-    height:inherit;    
-    display:flex;
-    justify-content: space-between;
-    align-content:center;
-    margin: 1px 30px 2px 30px;
-   
-  }
- 
+
+.nav-home {
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 1px 30px 2px 30px;
+}
