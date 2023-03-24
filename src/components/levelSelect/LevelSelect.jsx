@@ -11,14 +11,14 @@ const LevelSelect = ({ level, setLevel }) => {
             setLevel(1);
           }}
         >
-          Medium
+          Easy
         </button>
         <button
           onClick={() => {
             setLevel(2);
           }}
         >
-          Easy
+          Medium
         </button>
         <button
           onClick={() => {

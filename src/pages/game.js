@@ -7,17 +7,27 @@ const CardMatchGame = () => {
   const [level, setLevel] = useState(0);
 
   //testing array - we need to create images array
-  const imageArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const imageArray = [
+    "pic1",
+    "pic2",
+    "pic3",
+    "pic4",
+    "pic5",
+    "pic6",
+    "pic7",
+    "pic8",
+  ];
 
-  // randomisedImageArray(imageArray, num) =() => {
-  //   const mixedImages = ([...imageArray].sort(() => 0.5 - Math.random()));
-  //   return mixedImages.slice(0);
-  // }
-
-  useEffect(() => {
-    console.log(level);
-  }, [level]);
-
+  function randomisedImageArray(imageArray, num) {
+    const resultArray = [];
+    for (let i = 0; i < num; i++) {
+      const randomIndex = Math.floor(Math.random() * imageArray.length);
+      const randomItem = imageArray[randomIndex];
+      resultArray.push(randomItem);
+      resultArray.push(randomItem);
+    }
+    return resultArray;
+  }
   if (level === 0) {
     return (
       <div className="container">
@@ -26,14 +36,17 @@ const CardMatchGame = () => {
       </div>
     );
   }
-
   if (level === 1) {
+    const randomCard = randomisedImageArray(imageArray, 2);
     return (
       <>
         <div>
-          {/* {randomisedImageArray(imageArray, 2).map(() => (
-            <Card />
-          ))} */}
+          <h1>Easy</h1>
+          {randomCard.map((card, index) => (
+            <div>
+              <Card card={card} index={index} />
+            </div>
+          ))}
         </div>
       </>
     );

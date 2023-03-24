@@ -1,10 +1,9 @@
 import React from "react";
 
-export default function Card() {
-  return(
+export default function Card({ card, index }) {
+  return (
     <>
-    <div className="card">Card</div>
-    <p>{"hello"}</p>
+      <p>{card}</p>
     </>
-  )
+  );
 }
