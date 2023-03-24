@@ -9,10 +9,11 @@ const CardMatchGame = () => {
   //testing array - we need to create images array
   const imageArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
-  // randomisedImageArray(imageArray, num) =() => {
-  //   const mixedImages = ([...imageArray].sort(() => 0.5 - Math.random()));
-  //   return mixedImages.slice(0);
-  // }
+  function randomisedImageArray(imageArray, num) {
+    const mixedImages = [...imageArray].sort(() => 0.5 - Math.random());
+
+    return mixedImages.slice(0, num);
+}
 
   useEffect(() => {
     console.log(level);
@@ -31,6 +32,7 @@ const CardMatchGame = () => {
     return (
       <>
         <div>
+        <div>{randomisedImageArray(imageArray, 2)} </div>
           {/* {randomisedImageArray(imageArray, 2).map(() => (
             <Card />
           ))} */}
@@ -42,6 +44,7 @@ const CardMatchGame = () => {
     return (
       <>
         <div>
+        <div>{randomisedImageArray(imageArray, 4)} </div>
           {/* {randomisedImageArray(imageArray, 4).map(() => (
             <Card />
           ))} */}
@@ -53,6 +56,7 @@ const CardMatchGame = () => {
     return (
       <>
         <div>
+        <div>{randomisedImageArray(imageArray, 8)} </div>
           {/* {randomisedImageArray(imageArray, 8).map(() => (
             <Card />
           ))} */}

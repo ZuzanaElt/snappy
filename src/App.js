@@ -12,6 +12,7 @@ import "./scss/app.scss";
 import LevelSelect from "./pages/LevelSelect";
 import "../src/scss/pages/home.scss";
 import CardMatchGame from "./pages/game";
+import Choice from "./pages/Choice";
 function App() {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();
@@ -53,8 +54,8 @@ function App() {
             element={<AccountDisplay session={session} />}
           />
           <Route path="/game" element={<CardMatchGame />} />
-          {/* <Route path="/level-select/easy" element={<EasyLevel />} />
-          <Route path="/level-select/medium" element={<MediumLevel />} />
+           <Route path="/level-select/choice" element={<Choice />} />
+          {/*<Route path="/level-select/medium" element={<MediumLevel />} />
           <Route path="/level-select/hard"  element={<HardLevel />} /> */}
         </Routes>
       </div>
