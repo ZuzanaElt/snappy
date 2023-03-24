@@ -1,10 +1,33 @@
 import React, { useEffect, useState } from "react";
 import LevelSelect from "../components/levelSelect/LevelSelect";
 import Card from "../components/card";
+import WellDone from "../components/well-done/WellDone"
+import { supabase } from "../lib/supabaseClient"
 //import { NavLink } from 'react-router-dom';
+import "../scss/pages/game.scss"
 
 const CardMatchGame = () => {
+
   const [level, setLevel] = useState(0);
+
+  const [images, setImages] = useState([]);
+
+  async function getImages() {
+      let { data, error } = await supabase.storage.from("game-images").list();
+      if (error) {
+        console.log(error);
+      } else {
+        setImages(data);
+      }
+    }
+
+    useEffect(() => {
+      getImages();
+    }, []);
+    useEffect(() => {
+      console.log(images);
+    }, [images]);
+
 
   //testing array - we need to create images array
   const imageArray = [
@@ -31,7 +54,7 @@ const CardMatchGame = () => {
   if (level === 0) {
     return (
       <div className="container">
-        <h1>Card Match Game</h1>
+        <h1>Card Matching Game</h1>
         <LevelSelect level={level} setLevel={setLevel} />
       </div>
     );
@@ -40,39 +63,68 @@ const CardMatchGame = () => {
     const randomCard = randomisedImageArray(imageArray, 2);
     return (
       <>
-        <div>
+        <div className="container">
           <h1>Easy</h1>
           {randomCard.map((card, index) => (
-            <div>
+            <div className="cardDiv1">
               <Card card={card} index={index} />
             </div>
           ))}
+        <button className="finish" onClick={() => {
+            setLevel(4);
+          }}>Finish</button>
         </div>
       </>
     );
   }
   if (level === 2) {
+    const randomCard = randomisedImageArray(imageArray, 4);
     return (
       <>
-        <div>
-          {/* {randomisedImageArray(imageArray, 4).map(() => (
-            <Card />
-          ))} */}
+        <div className="container">
+          <h1>Easy</h1>
+          {randomCard.map((card, index) => (
+            <div className="cardDiv2">
+              <Card card={card} index={index} />
+            </div>
+          ))}
+        <button className="finish" onClick={() => {
+            setLevel(4);
+          }}>Finish</button>
         </div>
       </>
     );
   }
   if (level === 3) {
+    const randomCard = randomisedImageArray(imageArray, 8);
     return (
       <>
-        <div>
-          {/* {randomisedImageArray(imageArray, 8).map(() => (
-            <Card />
-          ))} */}
+        <div className="container">
+          <h1>Easy</h1>
+          {randomCard.map((card, index) => (
+            <div className="cardDiv3">
+              <Card card={card} index={index} />
+            </div>
+          ))}
+        <button className="finish" onClick={() => {
+            setLevel(4);
+          }}>Finish</button>
         </div>
       </>
     );
   }
+
+  if (level === 4) {
+    return (
+      <>
+        <div>
+          <WellDone level={level} setLevel={setLevel} />
+        </div>
+      </>
+    );
+  }
+
 };
+
 
 export default CardMatchGame;

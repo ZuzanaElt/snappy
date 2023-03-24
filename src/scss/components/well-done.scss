@@ -1,0 +1,20 @@
+.retry > button {
+  padding: 1rem 2rem;
+  margin: 1rem;
+  color: black;
+  border: 1px solid black;
+  border-radius: 1rem;
+  font-size: 2rem;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+  width: 200px;
+}
+
+.retry > button:hover {
+  box-shadow: 0 0 2rem rgba($color: #0066ff, $alpha: 0.5);
+  border: 1px solid #0066ff;
+  color: #0066ff;
+}
+
+.wellDoneMessage {
+  font-size: 1.5rem;
+}

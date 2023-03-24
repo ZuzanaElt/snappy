@@ -9,9 +9,8 @@ import { supabase } from "../src/lib/supabaseClient";
 import AccountDisplay from "./pages/Account";
 import Nav from "./components/Nav/Nav";
 import "./scss/app.scss";
-import LevelSelect from "./pages/LevelSelect";
 import "../src/scss/pages/home.scss";
-import CardMatchGame from "./pages/game";
+import Game from "./pages/game";
 function App() {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();
@@ -39,15 +38,15 @@ function App() {
     });
   }, []);
 
-  if (session === null) {
-    return <AccountDisplay session={session} />;
-  }
+  // if (session === null) {
+  //   return <AccountDisplay session={session} />;
+  // }
   return (
     <Router>
       <div className="home">
         <Nav profile={profile} session={session} />
         <Routes>
-          <Route path="/" element={<CardMatchGame />} />
+          <Route path="/" element={<Game />} />
           <Route
             path="/account"
             element={<AccountDisplay session={session} />}
