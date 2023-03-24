@@ -19,3 +19,9 @@
   background-color: rgba($color: #ffffff, $alpha: 0.5);
   width: 200px;
 }
+
+.level-links > button:hover {
+  box-shadow: 0 0 2rem rgba($color: #0066ff, $alpha: 0.5);
+  border: 1px solid #0066ff;
+  color: #0066ff;
+}

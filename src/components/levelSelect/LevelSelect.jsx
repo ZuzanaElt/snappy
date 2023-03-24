@@ -1,5 +1,5 @@
 import React from "react";
-import "../../scss/pages/level-select.scss";
+import "../../scss/components/level-select.scss";
 
 const LevelSelect = ({ level, setLevel }) => {
   return (
