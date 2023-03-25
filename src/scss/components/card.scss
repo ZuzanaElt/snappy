@@ -1,6 +1,25 @@
 .card {
-  margin: 1rem;
-  padding: 1rem;
-  width: 50%;
-  border: 1px solid black;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 12rem;
+  height:12rem;
+  border: 8px solid rgb(250, 219, 43);
+  border-radius: 10px;
+  background-color:beige;
+  text-align: center;
+  align-content: center;
+  
+}
+
+@media screen and (max-width: 600px){
+  .card{
+    width: 9rem;
+    height:9rem; 
+  };   
+}
+  
+  
+.card-back , .front-back{
+  width:8rem;
+  height:8rem;
 }

@@ -6,6 +6,7 @@ import { supabase } from "../lib/supabaseClient"
 //import { NavLink } from 'react-router-dom';
 import "../scss/pages/game.scss"
 
+
 const CardMatchGame = () => {
 
   const [level, setLevel] = useState(0);
@@ -31,26 +32,28 @@ const CardMatchGame = () => {
 
   //testing array - we need to create images array
   const imageArray = [
-    "pic1",
-    "pic2",
+   
     "pic3",
     "pic4",
     "pic5",
     "pic6",
     "pic7",
     "pic8",
+    "pic13",
+    "pic14",
+    "pic15",
+    "pic16",
+    "pic17"
   ];
 
-  function randomisedImageArray(imageArray, num) {
-    const resultArray = [];
-    for (let i = 0; i < num; i++) {
-      const randomIndex = Math.floor(Math.random() * imageArray.length);
-      const randomItem = imageArray[randomIndex];
-      resultArray.push(randomItem);
-      resultArray.push(randomItem);
-    }
-    return resultArray;
-  }
+function randomisedImageArray(imageArray, num) {
+  let resultArray = []
+  const mixedImages = ([...imageArray].sort(() => 0.5 - Math.random())).slice(0, num);
+  const doubledArray = mixedImages.concat(mixedImages)
+  resultArray = doubledArray.sort(() => 0.5 - Math.random());
+  return resultArray;
+}
+
   if (level === 0) {
     return (
       <div className="container">
@@ -63,13 +66,17 @@ const CardMatchGame = () => {
     const randomCard = randomisedImageArray(imageArray, 2);
     return (
       <>
-        <div className="container">
+        <div className="container ">
           <h1>Easy</h1>
-          {randomCard.map((card, index) => (
-            <div className="cardDiv1">
+          <div className="cardDiv1 ">
+            
+                {randomCard.map((card, index) => (
+            <div >
               <Card card={card} index={index} />
             </div>
           ))}
+          
+          </div>
         <button className="finish" onClick={() => {
             setLevel(4);
           }}>Finish</button>
@@ -82,12 +89,14 @@ const CardMatchGame = () => {
     return (
       <>
         <div className="container">
-          <h1>Easy</h1>
+          <h1>Medium</h1>
+          <div className="cardDiv2 ">
           {randomCard.map((card, index) => (
-            <div className="cardDiv2">
+            <div >
               <Card card={card} index={index} />
             </div>
           ))}
+          </div>
         <button className="finish" onClick={() => {
             setLevel(4);
           }}>Finish</button>
@@ -100,12 +109,14 @@ const CardMatchGame = () => {
     return (
       <>
         <div className="container">
-          <h1>Easy</h1>
+          <h1>Hard</h1>
+          <div className="cardDiv3">
           {randomCard.map((card, index) => (
-            <div className="cardDiv3">
+            <div >
               <Card card={card} index={index} />
             </div>
           ))}
+          </div>
         <button className="finish" onClick={() => {
             setLevel(4);
           }}>Finish</button>
