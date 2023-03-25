@@ -17,8 +17,9 @@ return(
   <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
       <div className="">
           <div className="">
-              <button className="back-flip-button card" onClick={handleClick}>
-                  <img className="card-back" alt="card-back" src={dino}/>
+              <button className="front-flip-button card" onClick={handleClick}>
+                  {card}
+                  <img className="front-back" alt="card-front" src={dino}/>
               </button>
           </div>
       </div>

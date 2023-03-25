@@ -38,19 +38,39 @@ const CardMatchGame = () => {
     "pic5",
     "pic6",
     "pic7",
-    "pic8"
+    "pic8",
+    "pic13",
+    "pic14",
+    "pic15",
+    "pic16",
+    "pic17"
   ];
 
-  function randomisedImageArray(imageArray, num) {
-    const resultArray = [];
-    for (let i = 0; i < num; i++) {
-      const randomIndex = Math.floor(Math.random() * imageArray.length);
-      const randomItem = imageArray[randomIndex];
-      resultArray.push(randomItem);
-      resultArray.push(randomItem);
-    }
-    return resultArray;
-  }
+  // function randomisedImageArray(imageArray, num) {
+  //   const resultArray = [];
+  //   for (let i = 0; i < num; i++) {
+  //     const randomIndex = Math.floor(Math.random() * imageArray.length);
+  //     const randomItem = imageArray[randomIndex];
+  //     resultArray.push(randomItem);
+  //     resultArray.push(randomItem);
+  //   }
+  //   return resultArray;
+  // }
+
+// function randomisedImageArray(imageArray, num) {
+//       const resultArray = [...imageArray].sort(() => 0.5 - Math.random());
+
+//       return resultArray.slice(0, num);
+//   }
+
+function randomisedImageArray(imageArray, num) {
+  let resultArray = []
+  const mixedImages = ([...imageArray].sort(() => 0.5 - Math.random())).slice(0, num);
+  const doubledArray = mixedImages.concat(mixedImages)
+  resultArray = doubledArray.sort(() => 0.5 - Math.random());
+  return resultArray;
+}
+
   if (level === 0) {
     return (
       <div className="container">
