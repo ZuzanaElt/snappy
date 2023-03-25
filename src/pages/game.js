@@ -46,23 +46,6 @@ const CardMatchGame = () => {
     "pic17"
   ];
 
-  // function randomisedImageArray(imageArray, num) {
-  //   const resultArray = [];
-  //   for (let i = 0; i < num; i++) {
-  //     const randomIndex = Math.floor(Math.random() * imageArray.length);
-  //     const randomItem = imageArray[randomIndex];
-  //     resultArray.push(randomItem);
-  //     resultArray.push(randomItem);
-  //   }
-  //   return resultArray;
-  // }
-
-// function randomisedImageArray(imageArray, num) {
-//       const resultArray = [...imageArray].sort(() => 0.5 - Math.random());
-
-//       return resultArray.slice(0, num);
-//   }
-
 function randomisedImageArray(imageArray, num) {
   let resultArray = []
   const mixedImages = ([...imageArray].sort(() => 0.5 - Math.random())).slice(0, num);
@@ -127,11 +110,13 @@ function randomisedImageArray(imageArray, num) {
       <>
         <div className="container">
           <h1>Hard</h1>
+          <div className="cardDiv3">
           {randomCard.map((card, index) => (
-            <div className="cardDiv3">
+            <div >
               <Card card={card} index={index} />
             </div>
           ))}
+          </div>
         <button className="finish" onClick={() => {
             setLevel(4);
           }}>Finish</button>
