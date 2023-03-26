@@ -19,7 +19,20 @@
 }
   
   
-.card-back , .front-back{
+.front-back{
   width:8rem;
   height:8rem;
+}
+
+.card-back {
+  width: 9rem;
+  height:10rem;
+}
+
+.front-flip-button {
+  background-color: beige;
+}
+
+.back-flip-button {
+  background-color: white;
 }

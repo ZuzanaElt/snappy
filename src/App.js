@@ -15,6 +15,7 @@ import Game from "./pages/game";
 function App() {
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();
+  const [level, setLevel] = useState(0);
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       console.log(session);
@@ -45,9 +46,9 @@ function App() {
   return (
     <Router>
       <div className="home">
-        <Nav profile={profile} session={session} />
+        <Nav profile={profile} session={session} level={level} setLevel={setLevel} />
         <Routes>
-          <Route path="/" element={<Game />} />
+          <Route path="/" element={<Game level={level} setLevel={setLevel}/>} />
           <Route
             path="/account"
             element={<AccountDisplay session={session} />}

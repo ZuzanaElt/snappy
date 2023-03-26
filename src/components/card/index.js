@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import dino from "./dino.png";
-import house from "./house.webp";
+// import house from "./house.webp";
 import ReactCardFlip from "react-card-flip";
+import "../../scss/components/card.scss"
 
 export default function Card({ image, index }) {
   const baseUrl =

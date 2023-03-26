@@ -6,8 +6,8 @@ import { supabase } from "../lib/supabaseClient";
 //import { NavLink } from 'react-router-dom';
 import "../scss/pages/game.scss";
 
-const CardMatchGame = () => {
-  const [level, setLevel] = useState(0);
+const CardMatchGame = ({ level, setLevel}) => {
+  // const [level, setLevel] = useState(0);
 
   const [images, setImages] = useState([]);
 
@@ -28,19 +28,19 @@ const CardMatchGame = () => {
   }, [images]);
 
   //testing array - we need to create images array
-  const imageArray = [
-    "pic3",
-    "pic4",
-    "pic5",
-    "pic6",
-    "pic7",
-    "pic8",
-    "pic13",
-    "pic14",
-    "pic15",
-    "pic16",
-    "pic17",
-  ];
+  // const imageArray = [
+  //   "pic3",
+  //   "pic4",
+  //   "pic5",
+  //   "pic6",
+  //   "pic7",
+  //   "pic8",
+  //   "pic13",
+  //   "pic14",
+  //   "pic15",
+  //   "pic16",
+  //   "pic17",
+  // ];
 
   function randomisedImageArray(imageArray, num) {
     let resultArray = [];
@@ -69,7 +69,7 @@ const CardMatchGame = () => {
     return (
       <>
         <div className="container ">
-          <h1>Easy</h1>
+          {/* <h1>Easy</h1> */}
           <div className="cardDiv1 ">
             {randomCard.map((image, index) => (
               <div key={index}>
@@ -90,15 +90,15 @@ const CardMatchGame = () => {
     );
   }
   if (level === 2) {
-    const randomCard = randomisedImageArray(imageArray, 4);
+    const randomCard = randomisedImageArray(images, 4);
     return (
       <>
-        <div className="container">
-          <h1>Medium</h1>
+        <div className="container ">
+          {/* <h1>Medium</h1> */}
           <div className="cardDiv2 ">
-            {randomCard.map((card, index) => (
-              <div>
-                <Card card={card} index={index} />
+            {randomCard.map((image, index) => (
+              <div key={index}>
+                <Card image={image} index={index} />
               </div>
             ))}
           </div>
@@ -115,15 +115,15 @@ const CardMatchGame = () => {
     );
   }
   if (level === 3) {
-    const randomCard = randomisedImageArray(imageArray, 8);
+    const randomCard = randomisedImageArray(images, 8);
     return (
       <>
         <div className="container">
-          <h1>Hard</h1>
+          {/* <h1>Hard</h1> */}
           <div className="cardDiv3">
-            {randomCard.map((card, index) => (
-              <div>
-                <Card card={card} index={index} />
+            {randomCard.map((image, index) => (
+              <div key={index}>
+                <Card image={image} index={index} />
               </div>
             ))}
           </div>
