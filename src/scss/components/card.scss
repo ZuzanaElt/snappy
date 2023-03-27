@@ -1,38 +1,53 @@
-.card {
+.front-card {
   margin: 0.5rem;
   padding: 0.5rem;
   width: 12rem;
   height:12rem;
   border: 8px solid rgb(250, 219, 43);
   border-radius: 10px;
+  background-color:white;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.back-card {
+  width: 12rem;
+  height: 12rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 8px solid rgb(250, 219, 43);
+  border-radius: 10px;
   background-color:beige;
   text-align: center;
   align-content: center;
-  
+  cursor: pointer;
 }
 
-@media screen and (max-width: 600px){
-  .card{
-    width: 9rem;
-    height:9rem; 
-  };   
-}
-  
-  
-.front-back{
-  width:8rem;
-  height:8rem;
+.card-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 1.5rem;
 }
 
-.card-back {
-  width: 9rem;
-  height:10rem;
+.card .front-card {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
 }
 
-.front-flip-button {
-  background-color: beige;
+.flipped .front-card {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
 }
 
-.back-flip-button {
-  background-color: white;
+.card .back-card {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.flipped .back-card {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
 }
