@@ -1,36 +1,22 @@
-import React, { useState } from "react";
 import dino from "./dino.png";
-// import house from "./house.webp";
-import ReactCardFlip from "react-card-flip";
+// import ReactCardFlip from "react-card-flip";
 import "../../scss/components/card.scss"
 
-export default function Card({ image, index }) {
-  const baseUrl =
-    "https://qkyymgacogibwsilrvrp.supabase.co/storage/v1/object/public/game-images/";
-
-  const fullImageLink = baseUrl + image.name;
-  const [flipped, setflipped] = useState(false);
+export default function Card({ card, handleChoice, flipped, inactive }) {
 
   const handleClick = () => {
-    setflipped(!flipped);
-  };
+    console.log("card component:", card);
+    if (!inactive) {
+      handleChoice(card)
+    }
+  }
 
   return (
-    <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
-      <div className="">
-        <div className="">
-          <button className="front-flip-button card" onClick={handleClick}>
-            <img className="front-back" alt="card-front" src={dino} />
-          </button>
-        </div>
-      </div>
-      <div className="">
-        <div className="">
-          <button className="back-flip-button card" onClick={handleClick}>
-            <img className="card-back" alt="card-back" src={fullImageLink} />
-          </button>
-        </div>
-      </div>
-    </ReactCardFlip>
+    <div className='card' key={card.key}>
+    <div className={flipped ? "flipped" : ""}>
+      <img className='front-card' src={card.src} />
+      <img onClick={handleClick} className='back-card' src={dino} />
+    </div>
+  </div>
   );
 }

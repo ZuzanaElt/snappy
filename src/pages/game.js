@@ -3,13 +3,19 @@ import LevelSelect from "../components/levelSelect/LevelSelect";
 import Card from "../components/card";
 import WellDone from "../components/well-done/WellDone";
 import { supabase } from "../lib/supabaseClient";
-//import { NavLink } from 'react-router-dom';
 import "../scss/pages/game.scss";
 
 const CardMatchGame = ({ level, setLevel}) => {
-  // const [level, setLevel] = useState(0);
 
   const [images, setImages] = useState([]);
+  const [cards, setCards] = useState([]);
+  const [playCards, setPlayCards] = useState([]);
+  const [guesses, setGuesses] = useState(0);
+  const [guessOne, setGuessOne] = useState(null);
+  const [guessTwo, setGuessTwo] = useState(null);
+  const [inactive, setInactive] = useState(false);
+
+  let localArray = [];
 
   async function getImages() {
     let { data, error } = await supabase.storage.from("game-images").list();
@@ -21,39 +27,79 @@ const CardMatchGame = ({ level, setLevel}) => {
   }
 
   useEffect(() => {
-    getImages();
-  }, []);
+    getImages()
+  }, [])
+
   useEffect(() => {
-    console.log(images);
-  }, [images]);
+    console.log("images array:", images);
+    populateLocalArray()
+    console.log("localArray:", localArray);
+  }, [images])
 
-  //testing array - we need to create images array
-  // const imageArray = [
-  //   "pic3",
-  //   "pic4",
-  //   "pic5",
-  //   "pic6",
-  //   "pic7",
-  //   "pic8",
-  //   "pic13",
-  //   "pic14",
-  //   "pic15",
-  //   "pic16",
-  //   "pic17",
-  // ];
+  useEffect(() => {
+    console.log("cards array:", cards);
+  }, [cards])
 
-  function randomisedImageArray(imageArray, num) {
-    let resultArray = [];
-    const mixedImages = [...imageArray]
-      .sort(() => 0.5 - Math.random())
-      .slice(0, num);
-    const doubledArray = mixedImages.concat(mixedImages);
-    resultArray = doubledArray.sort(() => 0.5 - Math.random());
-    return resultArray;
+  const populateLocalArray = () => {
+    const baseUrl =
+    "https://qkyymgacogibwsilrvrp.supabase.co/storage/v1/object/public/game-images/"
+    localArray = images
+    localArray.forEach((element) => {
+      element.matched = false
+      element.src = baseUrl + element.name
+    });
+    setCards(localArray)
   }
+  
+  const randomisedImageArray = (num) => {
+    const cardsFromArray = cards
+      .sort(() => Math.random() - 0.5)
+      .slice(0, num)
+    const randomisedCards = [...cardsFromArray, ...cardsFromArray]
+      .sort(() => Math.random() - 0.5)
+    const cardsWithKey = randomisedCards.map((card) => ({ ...card, key: Math.random() }))
+      setGuessOne(null)
+      setGuessTwo(null)
+      setPlayCards(cardsWithKey)
+      setGuesses(0)
+  };
+
+  const handleChoice = (card) => {
+    guessOne ? setGuessTwo(card) : setGuessOne(card)
+  }
+
   useEffect(() => {
-    console.log(images);
-  }, [images]);
+    if (guessOne && guessTwo) {
+      setInactive(true)
+      if (guessOne.src === guessTwo.src) {
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if (card.src === guessOne.src) {
+              return {...card, matched: true}
+            } else {
+              return card
+            }
+          })
+        })
+        reset()
+      } else {
+        setTimeout(() => reset(), 1000)
+      }
+    }
+  }, [guessOne, guessTwo]);
+
+  const reset = () => {
+    setGuessOne(null)
+    setGuessTwo(null)
+    setGuesses(prevGuesses => prevGuesses + 1)
+    setInactive(false)
+  }
+
+  useEffect(() => {
+    if(level === 1) {
+      randomisedImageArray(2)
+    }
+  }, [level])
 
   if (level === 0) {
     return (
@@ -65,19 +111,22 @@ const CardMatchGame = ({ level, setLevel}) => {
   }
 
   if (level === 1) {
-    const randomCard = randomisedImageArray(images, 2);
+    const gameCards = playCards
     return (
-      <>
-        <div className="container ">
-          {/* <h1>Easy</h1> */}
-          <div className="cardDiv1 ">
-            {randomCard.map((image, index) => (
-              <div key={index}>
-                <Card image={image} index={index} />
-              </div>
-            ))}
-          </div>
-          <button
+      <div className="container">
+        <h1>Card match</h1>
+        <div className='card-grid'>
+          {gameCards.map(card => (
+              <Card
+                handleChoice={handleChoice}
+                card={card}
+                flipped={card === guessOne || card === guessTwo || card.matched}
+                inactive={inactive}
+              />
+          ))}
+        </div>
+        <p> Guesses: {guesses}</p>
+        <button
             className="finish"
             onClick={() => {
               setLevel(4);
@@ -85,58 +134,7 @@ const CardMatchGame = ({ level, setLevel}) => {
           >
             Finish
           </button>
-        </div>
-      </>
-    );
-  }
-  if (level === 2) {
-    const randomCard = randomisedImageArray(images, 4);
-    return (
-      <>
-        <div className="container ">
-          {/* <h1>Medium</h1> */}
-          <div className="cardDiv2 ">
-            {randomCard.map((image, index) => (
-              <div key={index}>
-                <Card image={image} index={index} />
-              </div>
-            ))}
-          </div>
-          <button
-            className="finish"
-            onClick={() => {
-              setLevel(4);
-            }}
-          >
-            Finish
-          </button>
-        </div>
-      </>
-    );
-  }
-  if (level === 3) {
-    const randomCard = randomisedImageArray(images, 8);
-    return (
-      <>
-        <div className="container">
-          {/* <h1>Hard</h1> */}
-          <div className="cardDiv3">
-            {randomCard.map((image, index) => (
-              <div key={index}>
-                <Card image={image} index={index} />
-              </div>
-            ))}
-          </div>
-          <button
-            className="finish"
-            onClick={() => {
-              setLevel(4);
-            }}
-          >
-            Finish
-          </button>
-        </div>
-      </>
+      </div>
     );
   }
 
@@ -149,6 +147,7 @@ const CardMatchGame = ({ level, setLevel}) => {
       </>
     );
   }
-};
+
+}
 
 export default CardMatchGame;
