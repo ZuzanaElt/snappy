@@ -20,7 +20,7 @@ function Auth() {
   };
 
   return (
-    <div>
+    <div className="auth-page">
       <div className="auth-login">
         <h1 className="header">Welcome to Snappy</h1>
         <p className="description">
