@@ -66,6 +66,7 @@ function Account({ session }) {
         // eslint-disable-next-line
         console.error(error);
       } else {
+        // eslint-disable-next-line
         return (imageName = image.name);
       }
     }
