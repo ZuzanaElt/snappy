@@ -15,7 +15,6 @@ const CardMatchGame = ({ level, setLevel }) => {
   const [guessOne, setGuessOne] = useState(null);
   const [guessTwo, setGuessTwo] = useState(null);
   const [inactive, setInactive] = useState(false);
-  const [correctGuesses, setCorrectGuesses] = useState(0);
 
   let localArray = [];
 
@@ -80,7 +79,6 @@ const CardMatchGame = ({ level, setLevel }) => {
         setPlayCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.id === guessOne.id) {
-              setCorrectGuesses((prevCorrect) => prevCorrect + 1)
               setTimeout(() => audio.play(), 500);
               return { ...card, matched: true };
             } else {
@@ -94,7 +92,8 @@ const CardMatchGame = ({ level, setLevel }) => {
         setTimeout(() => reset(), 1000);
       }
     }
-  }, [guessOne, guessTwo, audio, incorrectAudio]);
+// eslint-disable-next-line
+  }, [guessOne, guessTwo]);
 
   const reset = () => {
     setGuessOne(null);
@@ -104,26 +103,17 @@ const CardMatchGame = ({ level, setLevel }) => {
   };
 
   useEffect(() => {
-    if (level === 0 && correctGuesses === 4) {
-      setLevel(4);
-    }
-  }, [correctGuesses, level, setLevel])
-
-
-  useEffect(() => {
     if (level === 1) {
-      setCorrectGuesses(0)
       randomisedImageArray(2);
     } else if (level === 2) {
-      setCorrectGuesses(0)
       randomisedImageArray(4);
     } else if (level === 3) {
-      setCorrectGuesses(0)
       randomisedImageArray(8);
     } else {
       setLevel(0);
     }
-  }, [level, setLevel, randomisedImageArray]);
+// eslint-disable-next-line
+  }, [level]);
 
   if (level === 0) {
     return (
