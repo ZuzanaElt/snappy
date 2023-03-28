@@ -1,6 +1,5 @@
 import {
   BrowserRouter as Router,
-  Navigate,
   Route,
   Routes,
 } from "react-router-dom";
@@ -26,6 +25,9 @@ function App() {
             .select(`username, parentDOB, avatar_url`)
             .eq("id", session.user.id)
             .single();
+            if (error) {
+              console.error(error);
+            }
           return data;
         }
         getProfile().then((data) => {
@@ -40,9 +42,9 @@ function App() {
     });
   }, []);
 
-  // if (session === null) {
-  //   return <AccountDisplay session={session} />;
-  // }
+  if (session === null) {
+    return <AccountDisplay session={session} />;
+  }
   return (
     <Router>
       <div className="home">
@@ -53,9 +55,6 @@ function App() {
             path="/account"
             element={<AccountDisplay session={session} />}
           />
-          {/* <Route path="/level-select/easy" element={<EasyLevel />} />
-          <Route path="/level-select/medium" element={<MediumLevel />} />
-          <Route path="/level-select/hard"  element={<HardLevel />} /> */}
         </Routes>
       </div>
     </Router>

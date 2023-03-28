@@ -33,7 +33,8 @@ const CardMatchGame = ({ level, setLevel }) => {
   }, []);
 
   useEffect(() => {
-    populateLocalArray();
+    populateLocalArray()
+// eslint-disable-next-line
   }, [images]);
 
   const populateLocalArray = () => {
@@ -44,9 +45,10 @@ const CardMatchGame = ({ level, setLevel }) => {
       element.matched = false;
       element.src = baseUrl + element.name;
     });
-    setCards(localArray);
+    setCards(localArray)
   };
 
+// eslint-disable-next-line
   const randomisedImageArray = (num) => {
     const cardsFromArray = cards.sort(() => Math.random() - 0.5).slice(0, num);
     const randomisedCards = [...cardsFromArray, ...cardsFromArray].sort(
@@ -66,7 +68,9 @@ const CardMatchGame = ({ level, setLevel }) => {
     guessOne ? setGuessTwo(card) : setGuessOne(card);
   };
 
+// eslint-disable-next-line
   const audio = new Audio(correct);
+// eslint-disable-next-line
   const incorrectAudio = new Audio(wrong);
 
   useEffect(() => {
@@ -90,7 +94,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         setTimeout(() => reset(), 1000);
       }
     }
-  }, [guessOne, guessTwo]);
+  }, [guessOne, guessTwo, audio, incorrectAudio]);
 
   const reset = () => {
     setGuessOne(null);
@@ -103,7 +107,7 @@ const CardMatchGame = ({ level, setLevel }) => {
     if (level === 0 && correctGuesses === 4) {
       setLevel(4);
     }
-  }, [correctGuesses])
+  }, [correctGuesses, level, setLevel])
 
 
   useEffect(() => {
@@ -119,7 +123,7 @@ const CardMatchGame = ({ level, setLevel }) => {
     } else {
       setLevel(0);
     }
-  }, [level]);
+  }, [level, setLevel, randomisedImageArray]);
 
   if (level === 0) {
     return (
