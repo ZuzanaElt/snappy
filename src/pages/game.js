@@ -6,6 +6,7 @@ import { supabase } from "../lib/supabaseClient";
 import "../scss/pages/game.scss";
 import correct from "../correct.mp3";
 import wrong from "../wrong.mp3";
+import complete from "../complete.mp3"
 
 const CardMatchGame = ({ level, setLevel }) => {
   const [images, setImages] = useState([]);
@@ -73,6 +74,8 @@ const CardMatchGame = ({ level, setLevel }) => {
   const audio = new Audio(correct);
   // eslint-disable-next-line
   const incorrectAudio = new Audio(wrong);
+  // eslint-disable-next-line
+  const completeAudio = new Audio(complete);
 
   useEffect(() => {
     if (guessOne && guessTwo) {
@@ -107,10 +110,13 @@ const CardMatchGame = ({ level, setLevel }) => {
 
   useEffect(() => {
     if (level === 1 && correctGuesses === 2) {
+      setTimeout(() => completeAudio.play(), 1500);
       setTimeout(() => setLevel(4), 1500);
     } else if (level === 2 && correctGuesses === 4) {
+      setTimeout(() => completeAudio.play(), 1500);
       setTimeout(() => setLevel(4), 1500);
     } else if (level === 3 && correctGuesses === 8) {
+      setTimeout(() => completeAudio.play(), 1500);
       setTimeout(() => setLevel(4), 1500);
     };
     //eslint-disable-next-line
