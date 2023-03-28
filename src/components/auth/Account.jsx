@@ -6,6 +6,7 @@ function Account({ session }) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
   const [parentDOB, setParentDOB] = useState(null);
+// eslint-disable-next-line
   const [avatar_url, setAvatarUrl] = useState(null);
   const [image, setImage] = useState(null);
   const [msg, setMsg] = useState(false);
@@ -46,11 +47,13 @@ function Account({ session }) {
     const { user } = session;
     let imageName = null;
     if (image) {
+// eslint-disable-next-line
       const filePath = `${user.id}/${image.name}`;
       const { data, error } = await supabase.storage
         .from("profile-image")
         .upload(filePath, image);
       if (error) {
+// eslint-disable-next-line
         console.error(error);
       } else {
         imageName = image.name;

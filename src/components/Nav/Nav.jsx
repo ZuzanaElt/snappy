@@ -37,7 +37,7 @@ export default function Nav({ profile, session, level, setLevel }) {
               <Link to="/account">
                 {profile && (
 // eslint-disable-next-line
-                  <img className="profileImgNav" src={getProfileImg()} />
+                  <img className="profileImgNav" src={getProfileImg()} alt="profile image" />
                 )}
               </Link>
               <NavLink to="/account" className="nav-home">
