@@ -4,7 +4,6 @@ import Card from "../components/card";
 import WellDone from "../components/well-done/WellDone";
 import { supabase } from "../lib/supabaseClient";
 import "../scss/pages/game.scss";
-import ReactAudioPlayer from "react-audio-player";
 import correct from "../correct.mp3";
 import wrong from "../wrong.mp3";
 
@@ -80,12 +79,12 @@ const CardMatchGame = ({ level, setLevel }) => {
               return { ...card, matched: true };
             } else {
               return card;
-              incorrectAudio.play();
             }
           });
         });
         reset();
       } else {
+        incorrectAudio.play();
         setTimeout(() => reset(), 1000);
       }
     }
@@ -101,12 +100,12 @@ const CardMatchGame = ({ level, setLevel }) => {
   useEffect(() => {
     if (level === 1) {
       randomisedImageArray(2);
-    }
-    if (level === 2) {
+    } else if (level === 2) {
       randomisedImageArray(4);
-    }
-    if (level === 3) {
+    } else if (level === 3) {
       randomisedImageArray(8);
+    } else {
+      setLevel(0);
     }
   }, [level]);
 
