@@ -6,6 +6,8 @@ import { supabase } from "../lib/supabaseClient";
 import "../scss/pages/game.scss";
 import correct from "../correct.mp3";
 import wrong from "../wrong.mp3";
+import star from "../components/levelSelect/red-star.png";
+
 
 const CardMatchGame = ({ level, setLevel }) => {
   const [images, setImages] = useState([]);
@@ -135,7 +137,7 @@ const CardMatchGame = ({ level, setLevel }) => {
     );
   };
 
-  if (level === 1 || level === 2 || level === 3) {
+  if (level === 1 || level === 2 ) {
     const gameCards = playCards;
     return (
       <div className="container">
@@ -153,6 +155,48 @@ const CardMatchGame = ({ level, setLevel }) => {
           ))}
         </div>
       </div>
+    );
+  }
+  if (level === 3) {
+    const gameCards = playCards;
+    return (
+      <>
+        <div className="top-level">
+            <div >
+                <p className="gameTitleMobile-lvl3 ">Try to match the cards! </p>
+                <p className="guessesMobile-lvl3 ">Guesses: {guesses} </p>
+            </div>
+            
+        </div>
+        <div className="screen-split">
+              <section>
+                    <div className="stars-lvl3"> 
+                        <img src={star} className="stars-lvl3" alt="Hard"/>
+                        <img src={star} className="star" alt="Hard"/>
+                        <img src={star} className="star" alt="Hard"/>
+                    </div>
+                    <div className="gameTitle-lvl3 ">Try to match All the cards! 
+                    </div>
+                    <p className="guesses-lvl3 ">Guesses: {guesses}</p>
+              </section>
+              <div className=" container-lvl3">
+          </div>
+
+          <div className="card-grid-lvl3 card-grid">
+              {gameCards.map((card, index) => (
+                <Card
+                  key={index}
+                  handleChoice={handleChoice}
+                  card={card}
+                  flipped={card === guessOne || card === guessTwo || card.matched}
+                  inactive={inactive}
+                />
+              ))}
+          </div>
+          
+        </div>
+      
+      </>
     );
   }
 

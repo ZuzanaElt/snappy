@@ -1,15 +1,51 @@
-.container {
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.container > h1 {
+  font-size: 2.5rem;
+}
+.container-lvl3{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   
 }
-
-.container > h1 {
+.gameTitle-lvl3 {
   font-size: 2.5rem;
+  font-weight: 700;
+  color:rgb(68, 27, 112);
+  padding-top:15px;
+  padding-left:30px;
+  padding-right:20px;
    
 }
+.gameTitleMobile-lvl3 {
+  display:none;
+}
+.stars-lvl3{
+  padding-top:25px;
+  padding-left:30px;
+  text-align:center;
+  width:60px;
+}
+
+.guesses-lvl3{
+  font-size: 2rem;
+  font-weight: 700;
+  color:rgb(68, 27, 112);
+  padding-left:30px;
+  padding-right:15px;
+  text-align:center;
+}
+.guessesMobile-lvl3 {
+  display:none;
+}
+
 
 .level-links > button {
   padding: 1rem 2rem;
@@ -35,12 +71,41 @@
 .star{
   height:40px;
   width:40px;
-  
 }
 
 @media screen and (max-width: 600px) {
   .level-links {
     text-align: center;
-    border:blue solid 2px;
+  }
+  .stars-lvl3{
+    display:none;
+  }
+ 
+  .gameTitle-lvl3 {
+    display:none;
+  }
+  .gameTitleMobile-lvl3 {
+    display:contents;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color:rgb(68, 27, 112);
+  }
+  .guessesMobile-lvl3{
+    font-size:2.3rem;
+    color:rgb(68, 27, 112);
+    font-weight: 700;
+  }
+ 
+  .top-level{
+    text-align: center;
+    padding-top:20px;
+  }
+
+  .guesses-lvl3{
+    display:none;
+  }
+  .screen-split{
+    display:block;
   }
 }
+
