@@ -15,7 +15,6 @@ const CardMatchGame = ({ level, setLevel }) => {
   const [guessOne, setGuessOne] = useState(null);
   const [guessTwo, setGuessTwo] = useState(null);
   const [inactive, setInactive] = useState(false);
-  const [correctGuesses, setCorrectGuesses] = useState(0);
 
   let localArray = [];
 
@@ -94,7 +93,8 @@ const CardMatchGame = ({ level, setLevel }) => {
         setTimeout(() => reset(), 1000);
       }
     }
-  }, [guessOne, guessTwo, audio, incorrectAudio]);
+// eslint-disable-next-line
+  }, [guessOne, guessTwo]);
 
   const reset = () => {
     setGuessOne(null);
@@ -122,7 +122,8 @@ const CardMatchGame = ({ level, setLevel }) => {
     } else {
       setLevel(0);
     }
-    // eslint-disable-next-line
+
+// eslint-disable-next-line
   }, [level]);
 
   if (level === 0) {
