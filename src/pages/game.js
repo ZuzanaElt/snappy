@@ -122,6 +122,7 @@ const CardMatchGame = ({ level, setLevel }) => {
     } else {
       setLevel(0);
     }
+    // eslint-disable-next-line
   }, [level]);
 
   if (level === 0) {
