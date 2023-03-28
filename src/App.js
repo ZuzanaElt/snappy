@@ -18,7 +18,7 @@ function App() {
   const [level, setLevel] = useState(0);
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      console.log(session);
+      
       if (session) {
         async function getProfile() {
           let { data, error } = await supabase

@@ -75,7 +75,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         setPlayCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.id === guessOne.id) {
-              audio.play();
+              setTimeout(() => audio.play(), 500);
               return { ...card, matched: true };
             } else {
               return card;
@@ -84,7 +84,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         });
         reset();
       } else {
-        incorrectAudio.play();
+        setTimeout(() => incorrectAudio.play(), 500);
         setTimeout(() => reset(), 1000);
       }
     }
@@ -112,7 +112,7 @@ const CardMatchGame = ({ level, setLevel }) => {
   if (level === 0) {
     return (
       <div className="container">
-        <h1>Card Matching Game</h1>
+        <h1 className="game-name">Card Matching Game</h1>
         <LevelSelect level={level} setLevel={setLevel} />
       </div>
     );

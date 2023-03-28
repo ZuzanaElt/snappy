@@ -3,7 +3,7 @@
   padding: 0.5rem;
   width: 10rem;
   height:10rem;
-  border: 5px solid rgb(143, 195, 75);
+  border: 5px solid rgb(241, 207, 51);
   border-radius: 10px;
   background-color:white;
   text-align: center;
@@ -16,7 +16,7 @@
   height: 10rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  border: 5px solid rgb(143, 195, 75);
+  border: 8px solid rgb(241, 207, 51);
   border-radius: 10px;
   background-color:beige;
   text-align: center;
@@ -26,7 +26,7 @@
 
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   padding: 1.5rem;
 }
 
@@ -49,4 +49,12 @@
 .flipped .back-card {
   transform: rotateY(90deg);
   transition-delay: 0s;
+}
+
+@media screen and (max-width: 680px) {
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    padding: 1.5rem;
+  }
 }
