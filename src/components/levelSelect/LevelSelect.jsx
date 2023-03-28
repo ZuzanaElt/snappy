@@ -1,5 +1,6 @@
 import React from "react";
 import "../../scss/components/level-select.scss";
+import star from "../../components/levelSelect/red-star.png"
 
 const LevelSelect = ({ level, setLevel }) => {
   return (
@@ -11,21 +12,24 @@ const LevelSelect = ({ level, setLevel }) => {
             setLevel(1);
           }}
         >
-          Easy
+        <img src={star} className="star" alt="Easy"/>
         </button>
         <button
           onClick={() => {
             setLevel(2);
           }}
         >
-          Medium
+          <img src={star} className="star" alt="Medium"/>
+          <img src={star} className="star" alt="Medium"/>
         </button>
         <button
           onClick={() => {
             setLevel(3);
           }}
-        >
-          Hard
+        > 
+          <img src={star} className="star" alt="Hard"/>
+          <img src={star} className="star" alt="Hard"/>
+          <img src={star} className="star" alt="Hard"/>
         </button>
       </div>
     </div>
