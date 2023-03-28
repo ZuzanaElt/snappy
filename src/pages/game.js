@@ -15,6 +15,7 @@ const CardMatchGame = ({ level, setLevel }) => {
   const [guessOne, setGuessOne] = useState(null);
   const [guessTwo, setGuessTwo] = useState(null);
   const [inactive, setInactive] = useState(false);
+  const [correctGuesses, setCorrectGuesses] = useState(0);
 
   let localArray = [];
 
@@ -75,6 +76,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         setPlayCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.id === guessOne.id) {
+              setCorrectGuesses((prevCorrect) => prevCorrect + 1)
               setTimeout(() => audio.play(), 500);
               return { ...card, matched: true };
             } else {
@@ -98,11 +100,21 @@ const CardMatchGame = ({ level, setLevel }) => {
   };
 
   useEffect(() => {
+    if (level === 0 && correctGuesses === 4) {
+      setLevel(4);
+    }
+  }, [correctGuesses])
+
+
+  useEffect(() => {
     if (level === 1) {
+      setCorrectGuesses(0)
       randomisedImageArray(2);
     } else if (level === 2) {
+      setCorrectGuesses(0)
       randomisedImageArray(4);
     } else if (level === 3) {
+      setCorrectGuesses(0)
       randomisedImageArray(8);
     } else {
       setLevel(0);
@@ -112,7 +124,6 @@ const CardMatchGame = ({ level, setLevel }) => {
   if (level === 0) {
     return (
       <div className="container">
-        <h1 className="game-name">Card Matching Game</h1>
         <LevelSelect level={level} setLevel={setLevel} />
       </div>
     );
@@ -142,7 +153,7 @@ const CardMatchGame = ({ level, setLevel }) => {
     return (
       <>
         <div>
-          <WellDone level={level} setLevel={setLevel} />
+          <WellDone level={level} setLevel={setLevel} guesses={guesses} />
         </div>
       </>
     );
