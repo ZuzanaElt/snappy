@@ -5,8 +5,7 @@ import WellDone from "../components/well-done/WellDone";
 import { supabase } from "../lib/supabaseClient";
 import "../scss/pages/game.scss";
 
-const CardMatchGame = ({ level, setLevel}) => {
-
+const CardMatchGame = ({ level, setLevel }) => {
   const [images, setImages] = useState([]);
   const [cards, setCards] = useState([]);
   const [playCards, setPlayCards] = useState([]);
@@ -27,79 +26,81 @@ const CardMatchGame = ({ level, setLevel}) => {
   }
 
   useEffect(() => {
-    getImages()
-  }, [])
+    getImages();
+  }, []);
 
   useEffect(() => {
     console.log("images array:", images);
-    populateLocalArray()
+    populateLocalArray();
     console.log("localArray:", localArray);
-  }, [images])
+  }, [images]);
 
   useEffect(() => {
     console.log("cards array:", cards);
-  }, [cards])
+  }, [cards]);
 
   const populateLocalArray = () => {
     const baseUrl =
-    "https://qkyymgacogibwsilrvrp.supabase.co/storage/v1/object/public/game-images/"
-    localArray = images
+      "https://qkyymgacogibwsilrvrp.supabase.co/storage/v1/object/public/game-images/";
+    localArray = images;
     localArray.forEach((element) => {
-      element.matched = false
-      element.src = baseUrl + element.name
+      element.matched = false;
+      element.src = baseUrl + element.name;
     });
-    setCards(localArray)
-  }
-  
+    setCards(localArray);
+  };
+
   const randomisedImageArray = (num) => {
-    const cardsFromArray = cards
-      .sort(() => Math.random() - 0.5)
-      .slice(0, num)
-    const randomisedCards = [...cardsFromArray, ...cardsFromArray]
-      .sort(() => Math.random() - 0.5)
-    const cardsWithKey = randomisedCards.map((card) => ({ ...card, key: Math.random() }))
-      setGuessOne(null)
-      setGuessTwo(null)
-      setPlayCards(cardsWithKey)
-      setGuesses(0)
+    const cardsFromArray = cards.sort(() => Math.random() - 0.5).slice(0, num);
+    const randomisedCards = [...cardsFromArray, ...cardsFromArray].sort(
+      () => Math.random() - 0.5
+    );
+    const cardsWithKey = randomisedCards.map((card) => ({
+      ...card,
+      key: Math.random(),
+    }));
+    setGuessOne(null);
+    setGuessTwo(null);
+    setPlayCards(cardsWithKey);
+    setGuesses(0);
   };
 
   const handleChoice = (card) => {
-    guessOne ? setGuessTwo(card) : setGuessOne(card)
-  }
+    guessOne ? setGuessTwo(card) : setGuessOne(card);
+  };
 
   useEffect(() => {
     if (guessOne && guessTwo) {
-      setInactive(true)
+      setInactive(true);
       if (guessOne.src === guessTwo.src) {
-        setCards(prevCards => {
-          return prevCards.map(card => {
+        setPlayCards((prevCards) => {
+          return prevCards.map((card) => {
             if (card.src === guessOne.src) {
-              return {...card, matched: true}
+              return { ...card, matched: true };
             } else {
-              return card
+              return card;
             }
-          })
-        })
-        reset()
+          });
+        });
+        reset();
       } else {
-        setTimeout(() => reset(), 1000)
+        setTimeout(() => reset(), 1000);
       }
     }
   }, [guessOne, guessTwo]);
 
   const reset = () => {
-    setGuessOne(null)
-    setGuessTwo(null)
-    setGuesses(prevGuesses => prevGuesses + 1)
-    setInactive(false)
-  }
+    setGuessOne(null);
+    setGuessTwo(null);
+    setGuesses((prevGuesses) => prevGuesses + 1);
+    setInactive(false);
+  };
 
   useEffect(() => {
-    if(level === 1) {
-      randomisedImageArray(2)
+    if (level === 1) {
+      randomisedImageArray(2);
     }
-  }, [level])
+  }, [level]);
 
   if (level === 0) {
     return (
@@ -111,29 +112,29 @@ const CardMatchGame = ({ level, setLevel}) => {
   }
 
   if (level === 1) {
-    const gameCards = playCards
+    const gameCards = playCards;
     return (
       <div className="container">
         <h1>Card match</h1>
-        <div className='card-grid'>
-          {gameCards.map(card => (
-              <Card
-                handleChoice={handleChoice}
-                card={card}
-                flipped={card === guessOne || card === guessTwo || card.matched}
-                inactive={inactive}
-              />
+        <div className="card-grid">
+          {gameCards.map((card) => (
+            <Card
+              handleChoice={handleChoice}
+              card={card}
+              flipped={card === guessOne || card === guessTwo || card.matched}
+              inactive={inactive}
+            />
           ))}
         </div>
         <p> Guesses: {guesses}</p>
         <button
-            className="finish"
-            onClick={() => {
-              setLevel(4);
-            }}
-          >
-            Finish
-          </button>
+          className="finish"
+          onClick={() => {
+            setLevel(4);
+          }}
+        >
+          Finish
+        </button>
       </div>
     );
   }
@@ -147,7 +148,6 @@ const CardMatchGame = ({ level, setLevel}) => {
       </>
     );
   }
-
-}
+};
 
 export default CardMatchGame;
