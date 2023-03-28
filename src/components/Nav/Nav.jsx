@@ -1,7 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-
-//import { FcHome } from '@react-icons/all-files/fa/FcHome';
 import profilePlaceholder from "./profile-placeholder.png";
 import housePic from "./house.webp";
 import dinoLogo from "./transparent.png";

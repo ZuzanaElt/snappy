@@ -1,11 +1,9 @@
 import dino from "./dino.png";
-// import ReactCardFlip from "react-card-flip";
 import "../../scss/components/card.scss"
 
 export default function Card({ card, handleChoice, flipped, inactive }) {
 
   const handleClick = () => {
-    console.log("card component:", card);
     if (!inactive) {
       handleChoice(card)
     }
