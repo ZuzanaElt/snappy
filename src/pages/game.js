@@ -4,6 +4,9 @@ import Card from "../components/card";
 import WellDone from "../components/well-done/WellDone";
 import { supabase } from "../lib/supabaseClient";
 import "../scss/pages/game.scss";
+import ReactAudioPlayer from "react-audio-player";
+import correct from "../correct.mp3";
+import wrong from "../wrong.mp3";
 
 const CardMatchGame = ({ level, setLevel }) => {
   const [images, setImages] = useState([]);
@@ -30,14 +33,8 @@ const CardMatchGame = ({ level, setLevel }) => {
   }, []);
 
   useEffect(() => {
-    console.log("images array:", images);
     populateLocalArray();
-    console.log("localArray:", localArray);
   }, [images]);
-
-  useEffect(() => {
-    console.log("cards array:", cards);
-  }, [cards]);
 
   const populateLocalArray = () => {
     const baseUrl =
@@ -69,16 +66,21 @@ const CardMatchGame = ({ level, setLevel }) => {
     guessOne ? setGuessTwo(card) : setGuessOne(card);
   };
 
+  const audio = new Audio(correct);
+  const incorrectAudio = new Audio(wrong);
+
   useEffect(() => {
     if (guessOne && guessTwo) {
       setInactive(true);
-      if (guessOne.src === guessTwo.src) {
+      if (guessOne.id === guessTwo.id) {
         setPlayCards((prevCards) => {
           return prevCards.map((card) => {
-            if (card.src === guessOne.src) {
+            if (card.id === guessOne.id) {
+              audio.play();
               return { ...card, matched: true };
             } else {
               return card;
+              incorrectAudio.play();
             }
           });
         });
@@ -100,6 +102,12 @@ const CardMatchGame = ({ level, setLevel }) => {
     if (level === 1) {
       randomisedImageArray(2);
     }
+    if (level === 2) {
+      randomisedImageArray(4);
+    }
+    if (level === 3) {
+      randomisedImageArray(8);
+    }
   }, [level]);
 
   if (level === 0) {
@@ -112,6 +120,60 @@ const CardMatchGame = ({ level, setLevel }) => {
   }
 
   if (level === 1) {
+    const gameCards = playCards;
+    return (
+      <div className="container">
+        <h1>Card match</h1>
+        <div className="card-grid">
+          {gameCards.map((card) => (
+            <Card
+              handleChoice={handleChoice}
+              card={card}
+              flipped={card === guessOne || card === guessTwo || card.matched}
+              inactive={inactive}
+            />
+          ))}
+        </div>
+        <p> Guesses: {guesses}</p>
+        <button
+          className="finish"
+          onClick={() => {
+            setLevel(4);
+          }}
+        >
+          Finish
+        </button>
+      </div>
+    );
+  }
+  if (level === 2) {
+    const gameCards = playCards;
+    return (
+      <div className="container">
+        <h1>Card match</h1>
+        <div className="card-grid">
+          {gameCards.map((card) => (
+            <Card
+              handleChoice={handleChoice}
+              card={card}
+              flipped={card === guessOne || card === guessTwo || card.matched}
+              inactive={inactive}
+            />
+          ))}
+        </div>
+        <p> Guesses: {guesses}</p>
+        <button
+          className="finish"
+          onClick={() => {
+            setLevel(4);
+          }}
+        >
+          Finish
+        </button>
+      </div>
+    );
+  }
+  if (level === 3) {
     const gameCards = playCards;
     return (
       <div className="container">
