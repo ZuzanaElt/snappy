@@ -1,9 +1,9 @@
 .front-card {
   margin: 0.5rem;
   padding: 0.5rem;
-  width: 12rem;
-  height:12rem;
-  border: 8px solid rgb(250, 219, 43);
+  width: 10rem;
+  height:10rem;
+  border: 5px solid rgb(143, 195, 75);
   border-radius: 10px;
   background-color:white;
   text-align: center;
@@ -12,11 +12,11 @@
 }
 
 .back-card {
-  width: 12rem;
-  height: 12rem;
+  width: 10rem;
+  height: 10rem;
   margin: 0.5rem;
   padding: 0.5rem;
-  border: 8px solid rgb(250, 219, 43);
+  border: 5px solid rgb(143, 195, 75);
   border-radius: 10px;
   background-color:beige;
   text-align: center;
@@ -25,7 +25,6 @@
 }
 
 .card-grid {
-  margin-top: 50px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 1.5rem;

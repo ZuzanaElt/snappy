@@ -118,11 +118,12 @@ const CardMatchGame = ({ level, setLevel }) => {
     );
   }
 
-  if (level === 1) {
+  if (level === 1 || level === 2 || level === 3) {
     const gameCards = playCards;
     return (
       <div className="container">
-        <h1>Card match</h1>
+        <h1 className="gameTitle">Try to match the cards!</h1>
+        <p> Guesses: {guesses}</p>
         <div className="card-grid">
           {gameCards.map((card) => (
             <Card
@@ -133,69 +134,6 @@ const CardMatchGame = ({ level, setLevel }) => {
             />
           ))}
         </div>
-        <p> Guesses: {guesses}</p>
-        <button
-          className="finish"
-          onClick={() => {
-            setLevel(4);
-          }}
-        >
-          Finish
-        </button>
-      </div>
-    );
-  }
-  if (level === 2) {
-    const gameCards = playCards;
-    return (
-      <div className="container">
-        <h1>Card match</h1>
-        <div className="card-grid">
-          {gameCards.map((card) => (
-            <Card
-              handleChoice={handleChoice}
-              card={card}
-              flipped={card === guessOne || card === guessTwo || card.matched}
-              inactive={inactive}
-            />
-          ))}
-        </div>
-        <p> Guesses: {guesses}</p>
-        <button
-          className="finish"
-          onClick={() => {
-            setLevel(4);
-          }}
-        >
-          Finish
-        </button>
-      </div>
-    );
-  }
-  if (level === 3) {
-    const gameCards = playCards;
-    return (
-      <div className="container">
-        <h1>Card match</h1>
-        <div className="card-grid">
-          {gameCards.map((card) => (
-            <Card
-              handleChoice={handleChoice}
-              card={card}
-              flipped={card === guessOne || card === guessTwo || card.matched}
-              inactive={inactive}
-            />
-          ))}
-        </div>
-        <p> Guesses: {guesses}</p>
-        <button
-          className="finish"
-          onClick={() => {
-            setLevel(4);
-          }}
-        >
-          Finish
-        </button>
       </div>
     );
   }
