@@ -1,11 +1,5 @@
-.gameTitle {
-  margin-bottom: 0;
-}
-@media screen and (max-width: 600px) {
-  .gameTitle {
-    margin:0;
-    text-align:center;
-  }
+@media screen and (max-width: 750px) {
+  
   .game-name{
     text-align:center;
   }
