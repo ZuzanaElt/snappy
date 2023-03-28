@@ -47,15 +47,15 @@ function Account({ session }) {
     const { user } = session;
     let imageName = null;
     if (image) {
-// eslint-disable-next-line
       const filePath = `${user.id}/${image.name}`;
+// eslint-disable-next-line
       const { data, error } = await supabase.storage
         .from("profile-image")
         .upload(filePath, image);
       if (error) {
-// eslint-disable-next-line
         console.error(error);
       } else {
+// eslint-disable-next-line
         imageName = image.name;
       }
     }
