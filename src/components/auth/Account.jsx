@@ -6,7 +6,7 @@ function Account({ session }) {
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
   const [parentDOB, setParentDOB] = useState(null);
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const [avatar_url, setAvatarUrl] = useState(null);
   const [image, setImage] = useState(null);
   const [msg, setMsg] = useState(false);
@@ -47,25 +47,26 @@ function Account({ session }) {
     const { user } = session;
     let imageName = null;
     if (image) {
+      // eslint-disable-next-line
       const filePath = `${user.id}/${image.name}`;
-// eslint-disable-next-line
-      const { data, error } = await supabase.storage
+      const { error } = await supabase.storage
         .from("profile-image")
         .upload(filePath, image);
       if (error) {
+        // eslint-disable-next-line
         console.error(error);
       } else {
-// eslint-disable-next-line
-        imageName = image.name;
+        return (imageName = image.name);
       }
     }
     const updates = {
       id: user.id,
       username,
       parentDOB,
-      avatar_url: image.name,
+      avatar_url: imageName,
       updated_at: new Date(),
     };
+    console.log(updates);
     let { error } = await supabase.from("profiles").upsert(updates);
     if (error) {
       alert(error.message);
