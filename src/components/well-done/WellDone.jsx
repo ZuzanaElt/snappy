@@ -5,7 +5,7 @@ const WellDone = ({ setLevel, guesses }) => {
   return (
     <div className="container">
       <h1 className="level-select">Well done!</h1>
-      <p className="wellDoneMessage">You matched all the card, and it only took you {guesses} guesses!</p>
+      <p className="wellDoneMessage">You matched all the cards, and it only took you {guesses} guesses!</p>
       <div className="retry">
         <button
           onClick={() => {
