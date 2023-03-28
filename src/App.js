@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { supabase } from "../src/lib/supabaseClient";
 import AccountDisplay from "./pages/Account";
@@ -17,7 +13,6 @@ function App() {
   const [level, setLevel] = useState(0);
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      
       if (session) {
         async function getProfile() {
           let { data, error } = await supabase
@@ -25,9 +20,9 @@ function App() {
             .select(`username, parentDOB, avatar_url`)
             .eq("id", session.user.id)
             .single();
-            if (error) {
-              console.error(error);
-            }
+          if (error) {
+            console.error(error);
+          }
           return data;
         }
         getProfile().then((data) => {
@@ -48,9 +43,17 @@ function App() {
   return (
     <Router>
       <div className="home">
-        <Nav profile={profile} session={session} level={level} setLevel={setLevel} />
+        <Nav
+          profile={profile}
+          session={session}
+          level={level}
+          setLevel={setLevel}
+        />
         <Routes>
-          <Route path="/" element={<Game level={level} setLevel={setLevel}/>} />
+          <Route
+            path="/"
+            element={<Game level={level} setLevel={setLevel} />}
+          />
           <Route
             path="/account"
             element={<AccountDisplay session={session} />}

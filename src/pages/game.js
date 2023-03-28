@@ -33,8 +33,8 @@ const CardMatchGame = ({ level, setLevel }) => {
   }, []);
 
   useEffect(() => {
-    populateLocalArray()
-// eslint-disable-next-line
+    populateLocalArray();
+    // eslint-disable-next-line
   }, [images]);
 
   const populateLocalArray = () => {
@@ -45,10 +45,10 @@ const CardMatchGame = ({ level, setLevel }) => {
       element.matched = false;
       element.src = baseUrl + element.name;
     });
-    setCards(localArray)
+    setCards(localArray);
   };
 
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const randomisedImageArray = (num) => {
     const cardsFromArray = cards.sort(() => Math.random() - 0.5).slice(0, num);
     const randomisedCards = [...cardsFromArray, ...cardsFromArray].sort(
@@ -68,9 +68,9 @@ const CardMatchGame = ({ level, setLevel }) => {
     guessOne ? setGuessTwo(card) : setGuessOne(card);
   };
 
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const audio = new Audio(correct);
-// eslint-disable-next-line
+  // eslint-disable-next-line
   const incorrectAudio = new Audio(wrong);
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         setPlayCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.id === guessOne.id) {
-              setCorrectGuesses((prevCorrect) => prevCorrect + 1)
+              setCorrectGuesses((prevCorrect) => prevCorrect + 1);
               setTimeout(() => audio.play(), 500);
               return { ...card, matched: true };
             } else {
@@ -107,23 +107,22 @@ const CardMatchGame = ({ level, setLevel }) => {
     if (level === 0 && correctGuesses === 4) {
       setLevel(4);
     }
-  }, [correctGuesses, level, setLevel])
-
+  }, [correctGuesses, level, setLevel]);
 
   useEffect(() => {
     if (level === 1) {
-      setCorrectGuesses(0)
+      setCorrectGuesses(0);
       randomisedImageArray(2);
     } else if (level === 2) {
-      setCorrectGuesses(0)
+      setCorrectGuesses(0);
       randomisedImageArray(4);
     } else if (level === 3) {
-      setCorrectGuesses(0)
+      setCorrectGuesses(0);
       randomisedImageArray(8);
     } else {
       setLevel(0);
     }
-  }, [level, setLevel, randomisedImageArray]);
+  }, [level]);
 
   if (level === 0) {
     return (
