@@ -4,12 +4,20 @@
   height: 3.75rem;
   width: 100%;
   background-color: transparent;
+  margin-top: 5px;
 }
-
+.nav-itemsTwo {
+  display: flex;
+}
 .nav-home {
   height: inherit;
   display: flex;
   justify-content: space-between;
   align-content: center;
   margin: 2px 30px 2px 30px;
+}
+.profileImgNav {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
