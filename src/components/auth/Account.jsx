@@ -3,7 +3,6 @@ import { supabase } from "../../lib/supabaseClient";
 import "../../scss/pages/account.scss";
 
 function Account({ session }) {
-  const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
   const [parentDOB, setParentDOB] = useState(null);
   // eslint-disable-next-line
@@ -20,13 +19,12 @@ function Account({ session }) {
 
   useEffect(() => {
     async function getProfile() {
-      setLoading(true);
       const { user } = session;
       let { data, error } = await supabase
         .from("profiles")
-        .select(`username, parentDOB, avatar_url`)
+        .select()
         .eq("id", user.id)
-        .single();
+        .maybeSingle();
       if (error) {
         console.warn(error);
       } else if (data) {
@@ -34,8 +32,6 @@ function Account({ session }) {
         setParentDOB(data.parentDOB);
         setAvatarUrl(data.avatar_url);
       }
-
-      setLoading(false);
     }
 
     getProfile();
@@ -43,9 +39,23 @@ function Account({ session }) {
 
   async function updateProfile(event) {
     event.preventDefault();
-    setLoading(true);
     const { user } = session;
     let imageName = null;
+
+    const updates = {
+      id: user.id,
+      username,
+      parentDOB,
+      avatar_url: image.name,
+      updated_at: new Date(),
+    };
+    console.log(updates);
+    let { error } = await supabase.from("profiles").upsert(updates);
+    if (error) {
+      alert(error.message);
+    } else {
+      setMsg(true);
+    }
     if (image) {
       // eslint-disable-next-line
       const filePath = `${user.id}/${image.name}`;
@@ -59,21 +69,6 @@ function Account({ session }) {
         return (imageName = image.name);
       }
     }
-    const updates = {
-      id: user.id,
-      username,
-      parentDOB,
-      avatar_url: imageName,
-      updated_at: new Date(),
-    };
-    console.log(updates);
-    let { error } = await supabase.from("profiles").upsert(updates);
-    if (error) {
-      alert(error.message);
-    } else {
-      setMsg(true);
-    }
-    setLoading(false);
   }
 
   return (
@@ -132,8 +127,8 @@ function Account({ session }) {
       )}
       <div>
         {msg && <p> Your profile has been updated</p>}
-        <button className="btn" type="submit" disabled={loading}>
-          {loading ? "Loading ..." : "Update"}
+        <button className="btn" type="submit">
+          Update
         </button>
       </div>
 
