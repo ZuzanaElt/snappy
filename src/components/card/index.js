@@ -12,8 +12,8 @@ export default function Card({ card, handleChoice, flipped, inactive }) {
   return (
     <div className='card' key={card.key}>
     <div className={flipped ? "flipped" : ""}>
-      <img className='front-card' src={card.src} />
-      <img onClick={handleClick} className='back-card' src={dino} />
+      <img className='front-card' src={card.src} alt='card front' />
+      <img onClick={handleClick} className='back-card' src={dino} alt='card back' />
     </div>
   </div>
   );
