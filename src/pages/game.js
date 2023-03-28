@@ -140,8 +140,9 @@ const CardMatchGame = ({ level, setLevel }) => {
         <h1 className="gameTitle">Try to match the cards!</h1>
         <p> Guesses: {guesses}</p>
         <div className="card-grid">
-          {gameCards.map((card) => (
+          {gameCards.map((card, index) => (
             <Card
+              key={index}
               handleChoice={handleChoice}
               card={card}
               flipped={card === guessOne || card === guessTwo || card.matched}
