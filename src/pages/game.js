@@ -26,7 +26,7 @@ const CardMatchGame = ({ level, setLevel }) => {
     } else {
       setImages(data);
     }
-  }
+  };
 
   useEffect(() => {
     getImages();
@@ -58,10 +58,11 @@ const CardMatchGame = ({ level, setLevel }) => {
       ...card,
       key: Math.random(),
     }));
+    setPlayCards(cardsWithKey);
     setGuessOne(null);
     setGuessTwo(null);
-    setPlayCards(cardsWithKey);
     setGuesses(0);
+    setCorrectGuesses(0);
   };
 
   const handleChoice = (card) => {
@@ -77,10 +78,10 @@ const CardMatchGame = ({ level, setLevel }) => {
     if (guessOne && guessTwo) {
       setInactive(true);
       if (guessOne.id === guessTwo.id) {
+        setCorrectGuesses((prevCorrect) => prevCorrect + 1);
         setPlayCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.id === guessOne.id) {
-              setCorrectGuesses((prevCorrect) => prevCorrect + 1);
               setTimeout(() => audio.play(), 500);
               return { ...card, matched: true };
             } else {
@@ -92,8 +93,8 @@ const CardMatchGame = ({ level, setLevel }) => {
       } else {
         setTimeout(() => incorrectAudio.play(), 500);
         setTimeout(() => reset(), 1000);
-      }
-    }
+      };
+    };
     // eslint-disable-next-line
   }, [guessOne, guessTwo]);
 
@@ -105,25 +106,24 @@ const CardMatchGame = ({ level, setLevel }) => {
   };
 
   useEffect(() => {
-    if (level === 0 && correctGuesses === 4) {
-      setLevel(4);
-    }
-  }, [correctGuesses, level, setLevel]);
+    if (level === 1 && correctGuesses === 2) {
+      setTimeout(() => setLevel(4), 1500);
+    } else if (level === 2 && correctGuesses === 4) {
+      setTimeout(() => setLevel(4), 1500);
+    } else if (level === 3 && correctGuesses === 8) {
+      setTimeout(() => setLevel(4), 1500);
+    };
+    //eslint-disable-next-line
+  }, [correctGuesses]);
 
   useEffect(() => {
     if (level === 1) {
-      setCorrectGuesses(0);
       randomisedImageArray(2);
     } else if (level === 2) {
-      setCorrectGuesses(0);
       randomisedImageArray(4);
     } else if (level === 3) {
-      setCorrectGuesses(0);
       randomisedImageArray(8);
-    } else {
-      setLevel(0);
-    }
-
+    };
     // eslint-disable-next-line
   }, [level]);
 
@@ -133,7 +133,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         <LevelSelect level={level} setLevel={setLevel} />
       </div>
     );
-  }
+  };
 
   if (level === 1 || level === 2 || level === 3) {
     const gameCards = playCards;
@@ -164,7 +164,7 @@ const CardMatchGame = ({ level, setLevel }) => {
         </div>
       </>
     );
-  }
+  };
 };
 
 export default CardMatchGame;
