@@ -123,8 +123,6 @@ const CardMatchGame = ({ level, setLevel }) => {
       randomisedImageArray(4);
     } else if (level === 3) {
       randomisedImageArray(8);
-    } else {
-      setLevel(0);
     };
     // eslint-disable-next-line
   }, [level]);
