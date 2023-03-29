@@ -24,7 +24,7 @@
   font-weight: 600;
   text-shadow: 0 0 1px black;
   padding-top:1.5rem;
-  // background-color:rgb(119, 216, 119);
+  // background-color:rgba(246, 250, 246, 0.2);
   
 }
 .level-select{
@@ -58,4 +58,27 @@
  height:8rem; 
  margin-top:-8rem;
  margin-right:-1.7em;
+}
+
+@media screen and (max-width: 750px) {
+  .dino-div{
+    display:none;
+  }
+  .wellDoneMessage{
+    padding:2rem;
+    padding-left:3rem;
+    font-weight: 300;
+  }
+  .mobile-container{
+    padding-top:4rem;
+  }
+  .retry > button{
+    padding-top:0;
+  }
+  .left-side{
+    display:none;
+  }
+  .right-side{
+    display:none;
+  }
 }

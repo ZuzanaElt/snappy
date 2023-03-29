@@ -8,6 +8,7 @@ import correct from "../sounds/correct.mp3";
 import wrong from "../sounds/wrong.mp3";
 import star from "../images/red-star.png";
 import complete from "../sounds/complete.mp3"
+import flyingdino from "../images/flyingdino.png"
 
 
 const CardMatchGame = ({ level, setLevel }) => {
@@ -146,36 +147,53 @@ const CardMatchGame = ({ level, setLevel }) => {
   if (level === 1 || level === 2 ) {
     const gameCards = playCards;
     return (
-      <div className="container">
-        <h1 className="gameTitle">Match all the cards!</h1>
-        <p className="guessesTitle"> Guesses: {guesses}</p>
-        <div className="card-grid">
-          {gameCards.map((card, index) => (
-            <Card
-              key={index}
-              handleChoice={handleChoice}
-              card={card}
-              flipped={card === guessOne || card === guessTwo || card.matched}
-              inactive={inactive}
-            />
-          ))}
-        </div>
-        
-      </div>
+
+      <div className="screen-split">
+          <section className="left-side">
+              <img src={flyingdino} className="dino-level1" alt="dino"/>
+          </section>
+          <div className="container">
+                <h1 className="gameTitle">Match all the cards!</h1>
+                <p className="guessesTitle"> Guesses: {guesses}</p>
+                <div className="card-grid">
+                    {gameCards.map((card, index) => (
+                      <Card
+                        key={index}
+                        handleChoice={handleChoice}
+                        card={card}
+                        flipped={card === guessOne || card === guessTwo || card.matched}
+                        inactive={inactive}
+                      />
+                    ))}
+                </div>
+                <div className="stars-row"> 
+                        <img src={star} className="star1-level1" alt="red star"/>
+                      <img src={star} className="star2-level1" alt="red star"/>
+                      <img src={star} className="star1-level1" alt="red star"/>
+                      <img src={star} className="star3-level1" alt="red star"/>
+                      <img src={star} className="star4-level1" alt="red star"/>
+                </div>
+            
+           </div>
+            <section className="right-side">
+               <img src={flyingdino} className="dino-well-done" alt="dino"/>
+            </section>
+       </div>
     );
   }
   if (level === 3) {
     const gameCards = playCards;
     return (
       <>
+      <div className="level3">
         <div className="top-level">
             <div >
-                <p className="gameTitleMobile-lvl3 ">Try to match the cards! </p>
+                <p className="gameTitleMobile-lvl3 "> Match all the cards! </p>
                 <p className="guessesMobile-lvl3 ">Guesses: {guesses} </p>
             </div>
             
         </div>
-        <div className="screen-split">
+            <div className="screen-split">
               <section>
                     <div className="stars-lvl3"> 
                         <img src={star} className="stars-lvl3" alt="Hard"/>
@@ -187,22 +205,20 @@ const CardMatchGame = ({ level, setLevel }) => {
                     <p className="guesses-lvl3 ">Guesses: {guesses}</p>
               </section>
               <div className=" container-lvl3">
+                <div className="card-grid card-grid-lvl3">
+                    {gameCards.map((card, index) => (
+                      <Card
+                        key={index}
+                        handleChoice={handleChoice}
+                        card={card}
+                        flipped={card === guessOne || card === guessTwo || card.matched}
+                        inactive={inactive}
+                      />
+                    ))}
+                </div>
+              </div>
           </div>
-
-          <div className="card-grid-lvl3 card-grid">
-              {gameCards.map((card, index) => (
-                <Card
-                  key={index}
-                  handleChoice={handleChoice}
-                  card={card}
-                  flipped={card === guessOne || card === guessTwo || card.matched}
-                  inactive={inactive}
-                />
-              ))}
-          </div>
-          
         </div>
-      
       </>
     );
   }

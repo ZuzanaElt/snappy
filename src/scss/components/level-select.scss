@@ -15,6 +15,17 @@
   justify-content: center;
   
 }
+.left-side{
+  width:30%;
+}
+.right-side{
+  width:30%;
+}
+.dino-level1{
+  padding-top:3rem;
+  width: 13rem;
+  padding-left: 20px;;
+}
 .gameTitle{
   font-size: 2rem;
   font-weight: 700;
@@ -27,10 +38,33 @@
   padding-top:15px;
   padding-left:30px;
   padding-right:20px;
-   
 }
 .gameTitleMobile-lvl3 {
   display:none;
+  
+}
+.star1-level1{
+  text-align:center;
+  width:60px;
+  padding:10px;
+  // margin-left:30px;
+  margin-bottom:30px;
+}
+.star2-level1{
+  text-align:center;
+  width:80px;
+  padding:10px;
+}
+.star3-level1{
+  
+  width:80px;
+  padding:10px;
+  margin-left:80px;
+}
+.star4-level1{
+  
+  width:80px;
+  margin-left:80px;
 }
 .stars-lvl3{
   padding-top:25px;
@@ -52,7 +86,7 @@
   text-align:center;
 }
 .guessesMobile-lvl3 {
-  display:none;
+  font-size: 0;
 }
 
 
@@ -65,7 +99,6 @@
   font-size: 2rem;
   background-color: rgba($color: #ffffff, $alpha: 0.5);
   width: 200px;
- 
 }
 
 .level-links > button:hover {
@@ -82,27 +115,42 @@
   width:40px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .level-links {
     text-align: center;
   }
+  
   .stars-lvl3{
     display:none;
   }
- 
+  .gameTitle{
+    font-size: 2rem;
+    font-weight: 700;
+    color:rgb(78, 41, 117);
+    padding-bottom:0;
+  }
   .gameTitle-lvl3 {
     display:none;
+   
   }
   .gameTitleMobile-lvl3 {
     display:contents;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color:rgb(78, 41, 117);
+    padding: 18px;
+  }
+  .guessesTitle{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top:0;
   }
   .guessesMobile-lvl3{
-    font-size:2.3rem;
+    display:content;
+    font-size:1.5rem;
     color:rgb(78, 41, 117);
     font-weight: 700;
+    margin:30px;
   }
  
   .top-level{
@@ -116,5 +164,19 @@
   .screen-split{
     display:block;
   }
+  .star4-level1{
+    padding-bottom:10px;
+    width:75px;
+ 
+    margin-left:0px;
+  }
+  .star3-level1{
+      margin-left:0;
+  }
+  .stars-row{
+    padding-top:0px;
+  }
+ 
+
 }
 
