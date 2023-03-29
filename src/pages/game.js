@@ -167,7 +167,7 @@ const CardMatchGame = ({ level, setLevel }) => {
   if (level === 3) {
     const gameCards = playCards;
     return (
-      <>
+      <div className="container">
         <div className="top-level">
             <div >
                 <p className="gameTitleMobile-lvl3 ">Try to match the cards! </p>
@@ -203,7 +203,7 @@ const CardMatchGame = ({ level, setLevel }) => {
           
         </div>
       
-      </>
+      </div>
     );
   }
 
