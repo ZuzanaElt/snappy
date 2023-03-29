@@ -4,13 +4,10 @@ import Card from "../components/card";
 import WellDone from "../components/well-done/WellDone";
 import { supabase } from "../lib/supabaseClient";
 import "../scss/pages/game.scss";
-import correct from "../correct.mp3";
-import wrong from "../wrong.mp3";
-
-import star from "../components/levelSelect/red-star.png";
-
-
-import complete from "../complete.mp3"
+import correct from "../sounds/correct.mp3";
+import wrong from "../sounds/wrong.mp3";
+import star from "../images/red-star.png";
+import complete from "../sounds/complete.mp3"
 
 
 const CardMatchGame = ({ level, setLevel }) => {
@@ -150,8 +147,8 @@ const CardMatchGame = ({ level, setLevel }) => {
     const gameCards = playCards;
     return (
       <div className="container">
-        <h1 className="gameTitle">Try to match the cards!</h1>
-        <p> Guesses: {guesses}</p>
+        <h1 className="gameTitle">Match all the cards!</h1>
+        <p className="guessesTitle"> Guesses: {guesses}</p>
         <div className="card-grid">
           {gameCards.map((card, index) => (
             <Card
@@ -163,6 +160,7 @@ const CardMatchGame = ({ level, setLevel }) => {
             />
           ))}
         </div>
+        
       </div>
     );
   }

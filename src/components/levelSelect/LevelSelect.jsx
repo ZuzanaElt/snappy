@@ -1,6 +1,6 @@
 import React from "react";
 import "../../scss/components/level-select.scss";
-import star from "../../components/levelSelect/red-star.png"
+import star from "../../images/red-star.png"
 
 const LevelSelect = ({ level, setLevel }) => {
   return (
@@ -32,6 +32,7 @@ const LevelSelect = ({ level, setLevel }) => {
           <img src={star} className="star" alt="Hard"/>
         </button>
       </div>
+      
     </div>
   );
 };

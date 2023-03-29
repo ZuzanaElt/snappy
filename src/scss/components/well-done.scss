@@ -1,20 +1,61 @@
 .retry > button {
   padding: 1rem 2rem;
-  margin: 1rem;
-  color: black;
+  margin: 2.5rem;
+  color: white;
   border: 1px solid black;
   border-radius: 1rem;
   font-size: 2rem;
-  background-color: rgba($color: #ffffff, $alpha: 0.5);
-  width: 200px;
+  
+  background-color: rgba($color: #fc0202, $alpha: 0.6);
+  width: 220px;
+
 }
 
 .retry > button:hover {
   box-shadow: 0 0 2rem rgba($color: #0066ff, $alpha: 0.5);
   border: 1px solid #0066ff;
-  color: #0066ff;
+  color:rgb(127, 229, 243);
+ 
 }
 
 .wellDoneMessage {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color:rgb(68, 33, 105);
+  font-weight: 600;
+  text-shadow: 0 0 1px black;
+  padding-top:1.5rem;
+  // background-color:rgb(119, 216, 119);
+  
+}
+.level-select{
+  color:rgb(68, 33, 105);
+  margin-bottom:0;
+  
+}
+
+.dino-div{
+  text-align:right;
+  width:100%;
+}
+.dino-well-done {
+  height: 6rem;
+  text-align: right;
+}
+
+.dino2-well-done {
+  height: 4rem;
+
+  text-align: right;
+  margin-right: 4rem;
+  padding-bottom: 0;
+}
+.yellow-star{
+ height:60px;
+}
+.yellow-star1{
+ padding-bottom:1.5rem;
+ padding-right:2rem;
+ height:8rem; 
+ margin-top:-8rem;
+ margin-right:-1.7em;
 }

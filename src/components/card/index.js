@@ -1,4 +1,4 @@
-import dino from "./dino.png";
+import dino from "../../images/snappy-logo.png";
 import "../../scss/components/card.scss"
 
 export default function Card({ card, handleChoice, flipped, inactive }) {

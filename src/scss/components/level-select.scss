@@ -15,10 +15,15 @@
   justify-content: center;
   
 }
+.gameTitle{
+  font-size: 2rem;
+  font-weight: 700;
+  color:rgb(78, 41, 117);
+}
 .gameTitle-lvl3 {
   font-size: 2.5rem;
   font-weight: 700;
-  color:rgb(68, 27, 112);
+  color:rgb(78, 41, 117);
   padding-top:15px;
   padding-left:30px;
   padding-right:20px;
@@ -33,11 +38,15 @@
   text-align:center;
   width:60px;
 }
-
+.guessesTitle{
+  font-size: 2rem;
+  font-weight: 700;
+  color:rgb(78, 41, 117);
+}
 .guesses-lvl3{
   font-size: 2rem;
   font-weight: 700;
-  color:rgb(68, 27, 112);
+  color:rgb(78, 41, 117);
   padding-left:30px;
   padding-right:15px;
   text-align:center;
@@ -88,11 +97,11 @@
     display:contents;
     font-size: 2.5rem;
     font-weight: 700;
-    color:rgb(68, 27, 112);
+    color:rgb(78, 41, 117);
   }
   .guessesMobile-lvl3{
     font-size:2.3rem;
-    color:rgb(68, 27, 112);
+    color:rgb(78, 41, 117);
     font-weight: 700;
   }
  
