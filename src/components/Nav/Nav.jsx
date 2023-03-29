@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import profilePlaceholder from "./profile-placeholder.png";
-import housePic from "./house.webp";
-import dinoLogo from "./transparent.png";
+import profilePlaceholder from "../../images/profile-placeholder.png";
+import housePic from "../../images/house.webp";
+import dinoLogo from "../../images/snappy-logo-no-padding.png";
 import "../../scss/components/nav.scss";
 
 export default function Nav({ profile, session, level, setLevel }) {
