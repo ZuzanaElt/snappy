@@ -185,7 +185,9 @@ const CardMatchGame = ({ level, setLevel }) => {
     const gameCards = playCards;
     return (
       <>
+
       <div className="level3">
+
         <div className="top-level">
             <div >
                 <p className="gameTitleMobile-lvl3 "> Match all the cards! </p>
@@ -219,6 +221,7 @@ const CardMatchGame = ({ level, setLevel }) => {
               </div>
           </div>
         </div>
+
       </>
     );
   }
