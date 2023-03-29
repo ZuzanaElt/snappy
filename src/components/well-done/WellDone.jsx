@@ -12,7 +12,7 @@ const WellDone = ({ setLevel, guesses }) => {
           <img src={flyingdino} className="dino2-well-done" alt="dino"/>
           <img src={flyingdino} className="dino2-well-done" alt="dino"/>
       </div>
-      <h1 className="level-select">
+      <h1 className="level-select mobile-container">
           <img src={yellowstar} className="yellow-star1" alt="yellow star"/>Well done! <img src={star} className="star" alt="star"/>
           <img src={yellowstar} className="yellow-star" alt="yellow star"/>
       </h1>
