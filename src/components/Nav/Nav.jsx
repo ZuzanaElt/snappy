@@ -41,7 +41,7 @@ export default function Nav({ profile, session, level, setLevel }) {
                 )}
               </Link>
               <NavLink to="/account" className="nav-home">
-                <img src={dinoLogo} alt="home button" className="home-button" />
+                <img src={dinoLogo} alt="home button" className="home-button dino-logo" />
               </NavLink>
             </div>
           </div>

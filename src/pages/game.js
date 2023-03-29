@@ -184,7 +184,7 @@ const CardMatchGame = ({ level, setLevel }) => {
                         <img src={star} className="star" alt="Hard"/>
                         <img src={star} className="star" alt="Hard"/>
                     </div>
-                    <div className="gameTitle-lvl3 ">Try to match All the cards! 
+                    <div className="gameTitle-lvl3 ">Match all the cards! 
                     </div>
                     <p className="guesses-lvl3 ">Guesses: {guesses}</p>
               </section>
