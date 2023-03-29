@@ -17,9 +17,9 @@ function App() {
         async function getProfile() {
           let { data, error } = await supabase
             .from("profiles")
-            .select(`username, parentDOB, avatar_url`)
+            .select()
             .eq("id", session.user.id)
-            .single();
+            .maybeSingle();
           if (error) {
             console.error(error);
           }
