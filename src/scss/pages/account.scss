@@ -5,7 +5,7 @@
   background-attachment: fixed;
   position: relative;
   z-index: 0;
-  // min-height: 100vh;
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@
 }
 .auth-page {
   background: transparent;
-  margin-top:7rem;
+  margin-top: 7rem;
   align-items: center;
 }
 .form {
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
+
   .btn {
     width: 100%;
     margin-top: 2px;
@@ -101,19 +101,18 @@
 }
 
 .header {
-  background-color: rgba(255,255,255,0.5);
-  padding: 0.5rem 1rem ;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
 
 @media screen and (max-width: 750px) {
-  .description{
-    font-weight:600;
+  .description {
+    font-weight: 600;
     padding: 2rem 0.5rem;
-
   }
   .auth-login {
-    padding-right:5px;
+    padding-right: 5px;
     padding-left: 5px;
   }
 }
