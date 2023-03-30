@@ -38,9 +38,9 @@ function App() {
     });
   }, []);
 
-  if (session === null) {
-    return <AccountDisplay session={session} />;
-  }
+  // if (session === null) {
+  //   return <AccountDisplay session={session} />;
+  // }
   
   return (
     <Router>
