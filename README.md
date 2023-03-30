@@ -29,7 +29,7 @@ Presentation link: [Google Slides Link](https://docs.google.com/presentation/d/1
 
 ## Video Demo
 
-[![Snappy - Demo](./public/images/snappy-screenshot.png)](https://drive.google.com/file/d/1ZizoLhaa-7ZqdAeDEUEOJRf93kF1nqYw/view "Snappy - Demo")
+[![Snappy - Demo](./public/images/snappy-demo.jpg)](https://drive.google.com/file/d/1ZizoLhaa-7ZqdAeDEUEOJRf93kF1nqYw/view "Snappy - Demo")
 
 ## Credits
 
@@ -59,7 +59,7 @@ Feel free to clone this repository to your local computer and explore the code. 
 
 ## Tests
 
-I am not aware of any bugs in the current version of the app, but if you encounter anything, please get in touch with us using the details in the [credits](#credits) section.
+We are not aware of any bugs in the current version of the app, but if you encounter anything, please get in touch with us using the details in the [credits](#credits) section.
 
 ## Questions
 
