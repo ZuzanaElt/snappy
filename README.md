@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Snappy - Children's Games
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Snappy is a digital game based on the classic card game Snap, aimed at children between the ages of 2 and 6. It offers two levels of difficulty, allowing young players to progress as they learn and grow. Snappy has several educational benefits for toddlers, making it an ideal way for them to learn while having fun.
 
-### `npm start`
+Snappy improves memory and attention span as players must pay close attention to the cards being played and remember which cards have been placed down. It helps to develop their memory and focus as they work to play the game successfully.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In addition, Snappy builds counting and number recognition skills. The game involves matching cards with the same number or picture, which reinforces counting skills and helps children learn to recognize numbers and shapes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Finally, Snappy encourages strategic thinking, which helps to develop problem-solving and strategic thinking skills in toddlers. Overall, Snappy is a fun and engaging way for toddlers to develop a range of important skills that can benefit their education and social development. It's a great addition to any parent or teacher's toolkit for promoting learning through play.
 
-### `npm test`
+Deployed at: [Netlify Link](https://phenomenal-alfajores-f3e735.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![screenshot of the deployed web app](./public/images/snappy-screenshot.png)
 
-### `npm run build`
+Presentation link: [Google Slides Link](https://docs.google.com/presentation/d/1rf7bv4am1FfZIyf8kbuAvhLIhxF8ta1auOHP4mEXF3E/edit#slide=id.g22877d5623d_0_8)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contents
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Video Demo](#video-demo)
+- [Credits](#credits)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Video Demo
 
-### `npm run eject`
+[![Snappy - Demo](./public/images/snappy-screenshot.png)](https://drive.google.com/file/d/1ZizoLhaa-7ZqdAeDEUEOJRf93kF1nqYw/view "Snappy - Demo")
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Credits
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Collaborators:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- David Salvat [GitHub Profile](https://github.com/dalvat/)
+- Sean Howe [GitHub Profile](https://github.com/SeanMH8911/)
+- Zuzana Knightova [GitHub Profile](https://github.com/ZuzanaElt)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Attributions:
 
-## Learn More
+- ReactJS [Link to website](https://react.dev/)
+- Sass [Link to website](https://sass-lang.com/)
+- supabase [Link to website](https://supabase.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project uses the following license:
 
-### Code Splitting
+The MIT License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to clone this repository to your local computer and explore the code. If you think some improvements can be made you can get in touch with us using the details in the [credits](#credits) section.
 
-### Making a Progressive Web App
+## Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I am not aware of any bugs in the current version of the app, but if you encounter anything, please get in touch with us using the details in the [credits](#credits) section.
 
-### Advanced Configuration
+## Questions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any questions, feel free to get in touch with us using the details in the [credits](#credits) section.
