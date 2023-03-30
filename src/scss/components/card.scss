@@ -60,7 +60,7 @@
   transition-delay: 0s;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 700px) {
   
   .card-grid-lvl3{
     text-align: center;
@@ -68,8 +68,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
     padding: 1rem;
-    margin-left:0;
-    margin-right:10px;
+    margin-left: 10px;
   }
   .card-grid {
     padding: 0;
