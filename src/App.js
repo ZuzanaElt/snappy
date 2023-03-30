@@ -8,7 +8,6 @@ import "../src/scss/pages/home.scss";
 import Game from "./pages/game";
 
 function App() {
-
   const [session, setSession] = useState(null);
   const [profile, setProfile] = useState();
   const [level, setLevel] = useState(0);
@@ -38,10 +37,10 @@ function App() {
     });
   }, []);
 
-  // if (session === null) {
-  //   return <AccountDisplay session={session} />;
-  // }
-  
+  if (session === null) {
+    return <AccountDisplay session={session} />;
+  }
+
   return (
     <Router>
       <div className="home">
