@@ -10,7 +10,9 @@ export default function Nav({ profile, session, level, setLevel }) {
     if (profile.avatar_url && session) {
       console.log(session);
       const baseUrl =
-        "https://qkyymgacogibwsilrvrp.supabase.co/storage/v1/object/public/profile-image/";
+        "https://nxhzkctasrhzwpofpeub.supabase.co/storage/v1/object/public/profile-image/";
+        //qkyymgacogibwsilrvrp SEAN
+        //allowing upload of profile avatar
       const profileImg = `${baseUrl}${session.user.id}/${profile.avatar_url}`;
       console.log(profileImg);
       return profileImg;
