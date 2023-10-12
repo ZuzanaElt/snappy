@@ -43,7 +43,7 @@ const CardMatchGame = ({ level, setLevel }) => {
 
   const populateLocalArray = () => {
     const baseUrl =
-      "https://qkyymgacogibwsilrvrp.supabase.co/storage/v1/object/public/game-images/";
+      "https://nxhzkctasrhzwpofpeub.supabase.co/storage/v1/object/public/game-images/";
     localArray = images;
     localArray.forEach((element) => {
       element.matched = false;
